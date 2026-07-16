@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ChevronRight, MapPin } from 'lucide-react';
 import marriageImg from '../assets/Image/3a9588f697000fffec0e6dcac056ba14.jpg';
 import receptionImg from '../assets/Image/9d124385492fb5882c8339336b825f9f.jpg';
+import familyImg from '../assets/Image/fc7d2381369ce3c0b1ccfd6c18b43ecf.jpg';
 import bgDecoration from '../assets/Image/6f6e5cfd602ab4c25cc8018823549f63.jpg';
 
 const cards = [
@@ -50,7 +51,7 @@ const cards = [
         <span className="font-bold tracking-widest text-sm font-['Cormorant_Garamond']">FAMILY</span>
       </div>
     ),
-    image: "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&q=80&w=1200", 
+    image: familyImg, 
   }
 ];
 
