@@ -1,0 +1,6 @@
+{
+  "name": "Wedding Invitation Cards",
+  "description": "An elegant wedding invitation layout with interactive expanding accordion cards featuring the couple's story and event details.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
