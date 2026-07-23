@@ -96,7 +96,7 @@ export default function App() {
     >
       <div className="max-w-4xl w-full text-center mt-8 md:mt-16 mb-10 md:mb-12">
         <h1 className="text-6xl md:text-[5.5rem] text-[#1c1c1c] mb-2 tracking-normal leading-[1.1] font-['Priestacy',_'Great_Vibes',_cursive] font-normal drop-shadow-sm">
-          Samdaniel & Vinoliya
+          Vinoliya & Samdaniel
         </h1>
         <p className="text-[#555] text-sm md:text-base max-w-[600px] mx-auto leading-relaxed uppercase tracking-[0.3em] font-['Montserrat'] font-medium mb-8">
           Are getting married • September 14, 2026
