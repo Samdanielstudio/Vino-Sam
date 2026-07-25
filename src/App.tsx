@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronRight, MapPin } from 'lucide-react';
-import marriageImg from '../assets/Image/3a9588f697000fffec0e6dcac056ba14.jpg';
-import receptionImg from '../assets/Image/9d124385492fb5882c8339336b825f9f.jpg';
+import marriageImg from '../assets/New Custom Images/Gemini_Generated_Image_hbtocchbtocchbto.png';
+import receptionImg from '../assets/New Custom Images/Gemini_Generated_Image_f1c2qf1c2qf1c2qf.png';
 import familyImg from '../assets/Image/fc7d2381369ce3c0b1ccfd6c18b43ecf.jpg';
 import bgDecoration from '../assets/Image/6f6e5cfd602ab4c25cc8018823549f63.jpg';
 
