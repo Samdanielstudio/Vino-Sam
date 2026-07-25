@@ -4,7 +4,7 @@ import { ChevronRight, MapPin } from 'lucide-react';
 import marriageImg from '../assets/New Custom Images/Gemini_Generated_Image_hbtocchbtocchbto.png';
 import receptionImg from '../assets/New Custom Images/Gemini_Generated_Image_f1c2qf1c2qf1c2qf.png';
 import familyImg from '../assets/Image/fc7d2381369ce3c0b1ccfd6c18b43ecf.jpg';
-import bgDecoration from '../assets/Image/6f6e5cfd602ab4c25cc8018823549f63.jpg';
+// bgDecoration removed for minimal look
 
 const cards = [
   {
@@ -90,10 +90,7 @@ export default function App() {
   }, []);
 
   return (
-    <div 
-      className="min-h-screen bg-[#f1f3f0] flex flex-col items-center justify-center p-4 md:p-8 font-sans relative overflow-hidden bg-cover bg-center bg-no-repeat"
-      style={{ backgroundImage: `url(${bgDecoration})` }}
-    >
+    <div className="min-h-screen bg-[#fafaf9] flex flex-col items-center justify-center p-4 md:p-8 font-sans relative overflow-hidden">
       <div className="max-w-4xl w-full text-center mt-8 md:mt-16 mb-10 md:mb-12">
         <h1 className="text-6xl md:text-[5.5rem] text-[#1c1c1c] mb-2 tracking-normal leading-[1.1] font-['Priestacy',_'Great_Vibes',_cursive] font-normal drop-shadow-sm">
           Vinoliya & Samdaniel
@@ -147,7 +144,7 @@ export default function App() {
                 alt={`Background for ${card.title}`}
                 className="absolute inset-0 w-full h-full object-cover origin-center"
                 initial={false}
-                animate={{ scale: isActive ? 1 : 1.15 }}
+                animate={{ scale: card.id === 3 ? 1 : (isActive ? 1 : 1.15) }}
                 transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
               />
               
