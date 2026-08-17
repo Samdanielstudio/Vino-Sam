@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronRight, ChevronLeft, MapPin, Calendar, CheckCircle2, Clock, X, Send, User, Phone, Mail, Users, MessageSquare } from 'lucide-react';
+import { ChevronRight, ChevronLeft, MapPin, Calendar, CheckCircle2, Clock, X, Send, User, Phone, Mail, Users, MessageSquare, Sparkles } from 'lucide-react';
 import bgMusic from '../assets/Music/the_mountain-wedding-522480.mp3';
 import marriageImg from '../assets/New Custom Images/Gemini_Generated_Image_hbtocchbtocchbto.png';
 import receptionImg from '../assets/New Custom Images/Gemini_Generated_Image_f1c2qf1c2qf1c2qf.png';
@@ -582,6 +582,55 @@ export default function App() {
 
         </AnimatePresence>
       </main>
+
+      {/* Bottom Fixed Navigation Bar: Highly Visible Mobile Next / Prev CTA */}
+      <footer className="w-full max-w-md px-6 pb-5 pt-2 flex items-center justify-between z-40 relative flex-shrink-0">
+        {/* Previous Scene Button */}
+        {scene > 1 ? (
+          <button
+            onClick={prevScene}
+            className="flex items-center gap-1.5 bg-[#F4EFF9]/90 hover:bg-[#EBE2F5] backdrop-blur-md px-4 py-2 rounded-full border border-[#DDD0EB] shadow-sm text-xs font-bold text-[#4A3763] transition-all cursor-pointer active:scale-95"
+          >
+            <ChevronLeft size={14} className="text-[#8B73A6]" />
+            <span>PREV</span>
+          </button>
+        ) : (
+          <div className="w-16" />
+        )}
+
+        {/* Scene Indicator Dots */}
+        <div className="flex items-center gap-1.5">
+          {[1, 2, 3, 4].map((step) => (
+            <button
+              key={step}
+              onClick={() => setScene(step)}
+              className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                scene === step ? 'w-6 bg-[#4A3763]' : 'w-2 bg-[#DDD0EB] hover:bg-[#A28BBF]'
+              }`}
+              title={`Go to Scene ${step}`}
+            />
+          ))}
+        </div>
+
+        {/* Next / Action CTA Button */}
+        {scene < totalScenes ? (
+          <button
+            onClick={nextScene}
+            className="flex items-center gap-1.5 bg-[#4A3763] hover:bg-[#38284C] text-[#FAF8FC] px-5 py-2 rounded-full border border-[#C8A97E]/40 shadow-md text-xs font-bold tracking-wider uppercase transition-all cursor-pointer active:scale-95"
+          >
+            <span>NEXT</span>
+            <ChevronRight size={14} className="text-[#C8A97E]" />
+          </button>
+        ) : (
+          <button
+            onClick={() => setIsRsvpModalOpen(true)}
+            className="flex items-center gap-1.5 bg-[#4A3763] hover:bg-[#38284C] text-[#FAF8FC] px-4 py-2 rounded-full border border-[#C8A97E]/40 shadow-md text-xs font-bold tracking-wider uppercase transition-all cursor-pointer active:scale-95"
+          >
+            <span>RSVP</span>
+            <Sparkles size={13} className="text-[#C8A97E]" />
+          </button>
+        )}
+      </footer>
 
       {/* Interactive RSVP Form Modal Dialog */}
       <AnimatePresence>
