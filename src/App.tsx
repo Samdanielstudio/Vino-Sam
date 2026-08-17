@@ -374,17 +374,17 @@ export default function App() {
                 WEDDING OCCASION DETAILS
               </motion.span>
 
-              {/* Both Occasions Compact & Fitting Screen Height */}
-              <div className="w-full space-y-2.5 text-left">
+              {/* Both Occasions Displayed Elegantly */}
+              <div className="w-full space-y-3.5 text-left max-h-[calc(100vh-110px)] overflow-y-auto no-scrollbar py-1">
                 {/* Occasion 1: Dinner & Reception */}
                 <motion.div
                   initial={{ opacity: 0, x: -15 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
-                  className="bg-[#FAF7FC]/95 backdrop-blur-md border border-[#C8A97E]/40 p-2.5 md:p-3 rounded-2xl shadow-sm relative overflow-hidden"
+                  className="bg-[#FAF7FC]/95 backdrop-blur-md border border-[#C8A97E]/40 p-3.5 md:p-4.5 rounded-3xl shadow-sm relative overflow-hidden"
                 >
                   {/* Photo Header */}
-                  <div className="relative rounded-lg overflow-hidden h-20 md:h-24 w-full mb-2 shadow-inner bg-stone-900 group">
+                  <div className="relative rounded-xl overflow-hidden h-28 md:h-34 w-full mb-3 shadow-inner bg-stone-900 group">
                     <img
                       src={receptionImg}
                       alt="Dinner & Reception"
@@ -392,8 +392,8 @@ export default function App() {
                     />
                   </div>
 
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-[9px] uppercase tracking-[0.2em] bg-[#F0EBF7] text-[#4A3763] px-2 py-0.5 rounded-full font-bold">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[10px] uppercase tracking-[0.2em] bg-[#F0EBF7] text-[#4A3763] px-2.5 py-1 rounded-full font-bold">
                       DINNER & RECEPTION
                     </span>
 
@@ -401,7 +401,7 @@ export default function App() {
                       href="https://maps.app.goo.gl/wqMKv7hmZn3ws7ub9"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 bg-[#4A3763] hover:bg-[#38284C] text-[#FAF8FC] px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase shadow-md transition-all duration-200 active:scale-95 cursor-pointer border border-[#C8A97E]/40"
+                      className="inline-flex items-center gap-1.5 bg-[#4A3763] hover:bg-[#38284C] text-[#FAF8FC] px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase shadow-md transition-all duration-200 active:scale-95 cursor-pointer border border-[#C8A97E]/40"
                     >
                       <MapPin size={13} className="text-[#C8A97E]" />
                       <span>VIEW MAP →</span>
@@ -409,15 +409,15 @@ export default function App() {
                   </div>
 
                   {/* Prominent Hero Date */}
-                  <div className="flex items-baseline gap-2 mb-0.5">
-                    <span className="text-3xl md:text-4xl font-bold font-['Cormorant_Garamond',_serif] text-[#4A3763] leading-none">13</span>
+                  <div className="flex items-baseline gap-2 mb-1">
+                    <span className="text-4xl md:text-5xl font-bold font-['Cormorant_Garamond',_serif] text-[#4A3763] leading-none">13</span>
                     <div className="flex flex-col text-left">
-                      <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#C8A97E]">SEPTEMBER 2026</span>
-                      <span className="text-[9px] font-semibold text-[#8B73A6]">SUNDAY • 7:00 PM ONWARDS</span>
+                      <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#C8A97E]">SEPTEMBER 2026</span>
+                      <span className="text-[10px] font-semibold text-[#8B73A6]">SUNDAY • 7:00 PM ONWARDS</span>
                     </div>
                   </div>
 
-                  <p className="text-[11px] text-[#75628C] font-['Montserrat'] font-medium">
+                  <p className="text-xs text-[#75628C] font-['Montserrat'] font-medium">
                     Chamanthi Venue • Hosur, Tamil Nadu
                   </p>
                 </motion.div>
@@ -427,10 +427,10 @@ export default function App() {
                   initial={{ opacity: 0, x: 15 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.6 }}
-                  className="bg-[#FAF7FC]/95 backdrop-blur-md border border-[#C8A97E]/40 p-2.5 md:p-3 rounded-2xl shadow-sm relative overflow-hidden"
+                  className="bg-[#FAF7FC]/95 backdrop-blur-md border border-[#C8A97E]/40 p-3.5 md:p-4.5 rounded-3xl shadow-sm relative overflow-hidden"
                 >
                   {/* Photo Header */}
-                  <div className="relative rounded-lg overflow-hidden h-20 md:h-24 w-full mb-2 shadow-inner bg-stone-900 group">
+                  <div className="relative rounded-xl overflow-hidden h-28 md:h-34 w-full mb-3 shadow-inner bg-stone-900 group">
                     <img
                       src={marriageImg}
                       alt="Holy Marriage Ceremony"
@@ -438,8 +438,8 @@ export default function App() {
                     />
                   </div>
 
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-[9px] uppercase tracking-[0.2em] bg-[#F0EBF7] text-[#4A3763] px-2 py-0.5 rounded-full font-bold">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[10px] uppercase tracking-[0.2em] bg-[#F0EBF7] text-[#4A3763] px-2.5 py-1 rounded-full font-bold">
                       HOLY MARRIAGE
                     </span>
 
@@ -447,7 +447,7 @@ export default function App() {
                       href="https://maps.app.goo.gl/2QGp6t3MdBhHzTXL6"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 bg-[#4A3763] hover:bg-[#38284C] text-[#FAF8FC] px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase shadow-md transition-all duration-200 active:scale-95 cursor-pointer border border-[#C8A97E]/40"
+                      className="inline-flex items-center gap-1.5 bg-[#4A3763] hover:bg-[#38284C] text-[#FAF8FC] px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase shadow-md transition-all duration-200 active:scale-95 cursor-pointer border border-[#C8A97E]/40"
                     >
                       <MapPin size={13} className="text-[#C8A97E]" />
                       <span>VIEW MAP →</span>
@@ -455,15 +455,15 @@ export default function App() {
                   </div>
 
                   {/* Prominent Hero Date */}
-                  <div className="flex items-baseline gap-2 mb-0.5">
-                    <span className="text-3xl md:text-4xl font-bold font-['Cormorant_Garamond',_serif] text-[#4A3763] leading-none">14</span>
+                  <div className="flex items-baseline gap-2 mb-1">
+                    <span className="text-4xl md:text-5xl font-bold font-['Cormorant_Garamond',_serif] text-[#4A3763] leading-none">14</span>
                     <div className="flex flex-col text-left">
-                      <span className="text-[11px] font-bold uppercase tracking-[0.18em] text-[#C8A97E]">SEPTEMBER 2026</span>
-                      <span className="text-[9px] font-semibold text-[#8B73A6]">MONDAY • 10:00 AM CEREMONY</span>
+                      <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#C8A97E]">SEPTEMBER 2026</span>
+                      <span className="text-[10px] font-semibold text-[#8B73A6]">MONDAY • 10:00 AM CEREMONY</span>
                     </div>
                   </div>
 
-                  <p className="text-[11px] text-[#75628C] font-['Montserrat'] font-medium">
+                  <p className="text-xs text-[#75628C] font-['Montserrat'] font-medium">
                     Sacred Heart Church • Hosur, Tamil Nadu
                   </p>
                 </motion.div>
