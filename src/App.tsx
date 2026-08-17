@@ -789,45 +789,6 @@ export default function App() {
           </div>
         )}
       </AnimatePresence>
-
-      {/* Bottom Fixed Navigation Control Bar */}
-      <footer className="w-full max-w-lg px-6 pb-6 pt-2 flex items-center justify-between z-40 relative">
-        <button
-          onClick={prevScene}
-          disabled={scene === 1}
-          className={`flex items-center gap-1 text-xs tracking-[0.2em] font-bold uppercase transition-opacity ${
-            scene === 1 ? 'opacity-30 cursor-not-allowed' : 'opacity-85 hover:opacity-100 cursor-pointer'
-          }`}
-        >
-          <ChevronLeft size={16} />
-          <span>PREV</span>
-        </button>
-
-        {/* Interactive Dots Bar */}
-        <div className="flex items-center gap-2">
-          {Array.from({ length: totalScenes }).map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setScene(i + 1)}
-              className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                scene === i + 1 ? 'w-6 bg-[#4A3763]' : 'w-2 bg-[#4A3763]/30 hover:bg-[#4A3763]/60'
-              }`}
-              title={`Jump to Scene ${i + 1}`}
-            />
-          ))}
-        </div>
-
-        <button
-          onClick={nextScene}
-          disabled={scene === totalScenes}
-          className={`flex items-center gap-1 text-xs tracking-[0.2em] font-bold uppercase transition-opacity ${
-            scene === totalScenes ? 'opacity-30 cursor-not-allowed' : 'opacity-85 hover:opacity-100 cursor-pointer'
-          }`}
-        >
-          <span>NEXT</span>
-          <ChevronRight size={16} />
-        </button>
-      </footer>
     </div>
   );
 }
