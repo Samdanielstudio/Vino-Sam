@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .font-script {
+    font-family: 'Alex Brush', 'Great Vibes', cursive;
+  }
+  .font-serif-title {
+    font-family: 'Cormorant Garamond', 'Playfair Display', serif;
+  }
+  .font-sans-body {
+    font-family: 'Montserrat', sans-serif;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #18181b;
+  color: #111111;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #121212;
+}
+::-webkit-scrollbar-thumb {
+  background: #333333;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555555;
+}
+
+/* Black and white filter for images to match reference design */
+.bw-filter {
+  filter: grayscale(100%) contrast(108%) brightness(98%);
+  transition: filter 0.3s ease, transform 0.5s ease;
+}
+
+.bw-filter:hover {
+  filter: grayscale(80%) contrast(110%) brightness(102%);
+}

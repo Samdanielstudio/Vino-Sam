@@ -1,0 +1,72 @@
+[
+  {
+    "id": "rsvp_1786986232779_wymp",
+    "name": "Test Guest",
+    "phone": "9876543210",
+    "email": "",
+    "attending": "yes",
+    "guestsCount": 2,
+    "events": [
+      "reception",
+      "marriage"
+    ],
+    "message": "Congratulations!",
+    "createdAt": "2026-08-17T17:03:52.779Z"
+  },
+  {
+    "id": "rsvp_1786986332207_9eee",
+    "name": "sam",
+    "phone": "8778610458",
+    "email": "",
+    "attending": "yes",
+    "guestsCount": 1,
+    "events": [
+      "reception",
+      "marriage"
+    ],
+    "message": "Testing",
+    "createdAt": "2026-08-17T17:05:32.207Z"
+  },
+  {
+    "id": "rsvp_1786986348953_s9ra",
+    "name": "sam",
+    "phone": "8778610458",
+    "email": "",
+    "attending": "yes",
+    "guestsCount": 1,
+    "events": [
+      "reception",
+      "marriage"
+    ],
+    "message": "Testing",
+    "createdAt": "2026-08-17T17:05:48.953Z"
+  },
+  {
+    "id": "rsvp_1786986407405_rr9o",
+    "name": "sam",
+    "phone": "8778610458",
+    "email": "",
+    "attending": "yes",
+    "guestsCount": 1,
+    "events": [
+      "reception",
+      "marriage"
+    ],
+    "message": "Testing",
+    "createdAt": "2026-08-17T17:06:47.405Z"
+  },
+  {
+    "id": "rsvp_1786986867226_wi42",
+    "name": "sdsdsaad",
+    "phone": "8778610458",
+    "email": "",
+    "attending": "yes",
+    "guestsCount": 1,
+    "events": [
+      "reception",
+      "marriage"
+    ],
+    "message": "Testing",
+    "createdAt": "2026-08-17T17:14:27.226Z"
+  }
+]
