@@ -69,7 +69,7 @@ const FallingLavenderPetal = ({ x, delay, duration, size, blur, opacity, depthSc
 
 export default function App() {
   const [scene, setScene] = useState(1);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [rsvpSubmitted, setRsvpSubmitted] = useState(false);
   const [isRsvpModalOpen, setIsRsvpModalOpen] = useState(false);
@@ -94,6 +94,35 @@ export default function App() {
   const nextScene = () => setScene((prev) => Math.min(prev + 1, totalScenes));
   const prevScene = () => setScene((prev) => Math.max(prev - 1, 1));
 
+  // Set 50% volume default and autoplay on mount / first user interaction
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = 0.5; // 50% volume
+      audioRef.current.play().then(() => {
+        setIsPlaying(true);
+      }).catch(() => {
+        setIsPlaying(false);
+      });
+    }
+
+    const handleFirstUserInteraction = () => {
+      if (audioRef.current && audioRef.current.paused) {
+        audioRef.current.volume = 0.5;
+        audioRef.current.play().then(() => {
+          setIsPlaying(true);
+        }).catch((err) => console.log("Audio unlock error:", err));
+      }
+    };
+
+    window.addEventListener('click', handleFirstUserInteraction, { once: true });
+    window.addEventListener('touchstart', handleFirstUserInteraction, { once: true });
+
+    return () => {
+      window.removeEventListener('click', handleFirstUserInteraction);
+      window.removeEventListener('touchstart', handleFirstUserInteraction);
+    };
+  }, []);
+
   // Background Music Toggle
   const toggleMusic = () => {
     if (audioRef.current) {
@@ -101,6 +130,7 @@ export default function App() {
         audioRef.current.pause();
         setIsPlaying(false);
       } else {
+        audioRef.current.volume = 0.5;
         audioRef.current.play().then(() => {
           setIsPlaying(true);
         }).catch((err) => console.log("Audio play error:", err));
@@ -200,8 +230,8 @@ export default function App() {
 
   return (
     <div className="h-screen max-h-screen w-full bg-[#FAF8FC] text-[#4A3763] font-['Cinzel',_serif] flex flex-col justify-between items-center relative overflow-hidden select-none paper-grain">
-      {/* Background Audio */}
-      <audio ref={audioRef} loop preload="auto" src={bgMusic} />
+      {/* Background Audio (50% Volume Default) */}
+      <audio ref={audioRef} loop autoPlay preload="auto" src={bgMusic} />
 
       {/* Falling Watercolor Lavender Petals */}
       {fallingPetalsData.map((petal) => (
