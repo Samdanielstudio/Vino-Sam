@@ -322,7 +322,7 @@ export default function App() {
                   transition={{ duration: 1, delay: 0.4 }}
                   className="text-5xl md:text-6xl font-normal text-[#4A3763] tracking-wide leading-tight font-['Alex_Brush',_cursive] drop-shadow-sm"
                 >
-                  Samdaniel
+                  Vinoliya
                 </motion.h1>
 
                 <motion.span
@@ -340,7 +340,7 @@ export default function App() {
                   transition={{ duration: 1, delay: 0.9 }}
                   className="text-5xl md:text-6xl font-normal text-[#4A3763] tracking-wide leading-tight font-['Alex_Brush',_cursive] drop-shadow-sm"
                 >
-                  Vinoliya
+                  Sam Daniel
                 </motion.h1>
               </div>
 
@@ -538,7 +538,7 @@ export default function App() {
                 </button>
 
                 <a
-                  href={`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent("Vinoliya & Samdaniel's Holy Marriage & Reception")}&dates=20260913T133000Z/20260914T083000Z&details=${encodeURIComponent("You are warmly invited to celebrate the Holy Marriage & Reception of Vinoliya & Samdaniel!\n\n- Dinner & Reception: Sunday 13 Sept 7:00 PM at Chamanthi Venue, Hosur\n- Holy Marriage: Monday 14 Sept 10:00 AM at Sacred Heart Church, Hosur")}&location=${encodeURIComponent("Sacred Heart Church, Hosur, Tamil Nadu")}`}
+                  href={`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent("Vinoliya & Sam Daniel's Holy Marriage & Reception")}&dates=20260913T133000Z/20260914T083000Z&details=${encodeURIComponent("You are warmly invited to celebrate the Holy Marriage & Reception of Vinoliya & Sam Daniel!\n\n- Dinner & Reception: Sunday 13 Sept 7:00 PM at Chamanthi Venue, Hosur\n- Holy Marriage: Monday 14 Sept 10:00 AM at Sacred Heart Church, Hosur")}&location=${encodeURIComponent("Sacred Heart Church, Hosur, Tamil Nadu")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[11px] tracking-[0.25em] uppercase text-[#8B73A6] font-bold hover:text-[#4A3763] transition-colors mt-2 cursor-pointer inline-flex items-center gap-1.5"

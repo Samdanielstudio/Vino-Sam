@@ -258,7 +258,7 @@ export default function App() {
                 <span className="text-xs text-[#8B73A6] font-bold">RSVPvino</span>
               </div>
               <h1 className="text-2xl md:text-3xl font-bold font-['Cinzel',_serif] text-[#4A3763] tracking-wide mt-1">
-                Vinoliya & Samdaniel RSVP Dashboard
+                Vinoliya & Sam Daniel RSVP Dashboard
               </h1>
             </div>
           </div>
