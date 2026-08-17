@@ -584,7 +584,7 @@ export default function App() {
       </main>
 
       {/* Bottom Fixed Navigation Bar: Highly Visible Mobile Next / Prev CTA */}
-      <footer className="w-full max-w-md px-6 pb-5 pt-2 flex items-center justify-between z-40 relative flex-shrink-0">
+      <footer className="w-full max-w-md px-6 pb-10 pt-3 mb-2 flex items-center justify-between z-40 relative flex-shrink-0">
         {/* Previous Scene Button */}
         {scene > 1 ? (
           <button
