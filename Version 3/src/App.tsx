@@ -32,7 +32,7 @@ const cards = [
     description: "Join us as we exchange vows and say 'I Do'",
     stat1Val: "14 Sept",
     stat1Label: "Date",
-    stat2Val: "10:00 AM",
+    stat2Val: "9:45 AM",
     stat2Label: "Time",
     stat3Val: "Hosur",
     stat3Label: "Location",
@@ -396,7 +396,7 @@ export default function App() {
   };
 
   useEffect(() => {
-    const weddingDate = new Date("2026-09-14T10:00:00").getTime();
+    const weddingDate = new Date("2026-09-14T09:45:00").getTime();
     
     const updateTimer = () => {
       const now = new Date().getTime();

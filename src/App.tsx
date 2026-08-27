@@ -205,9 +205,9 @@ export default function App() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isRsvpModalOpen]);
 
-  // Live Countdown Calculation to Sept 14, 2026 10:00 AM
+  // Live Countdown Calculation to Sept 14, 2026 9:45 AM
   useEffect(() => {
-    const weddingDate = new Date("2026-09-14T10:00:00").getTime();
+    const weddingDate = new Date("2026-09-14T09:45:00").getTime();
     
     const updateTimer = () => {
       const now = new Date().getTime();
@@ -489,7 +489,7 @@ export default function App() {
                     <span className="text-4xl md:text-5xl font-bold font-['Cormorant_Garamond',_serif] text-[#4A3763] leading-none">14</span>
                     <div className="flex flex-col text-left">
                       <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#C8A97E]">SEPTEMBER 2026</span>
-                      <span className="text-[10px] font-semibold text-[#8B73A6]">MONDAY • 10:00 AM CEREMONY</span>
+                      <span className="text-[10px] font-semibold text-[#8B73A6]">MONDAY • 9:45 AM CEREMONY</span>
                     </div>
                   </div>
 
@@ -568,7 +568,7 @@ export default function App() {
                 </button>
 
                 <a
-                  href={`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent("Vinoliya & Sam Daniel's Holy Marriage & Reception")}&dates=20260913T133000Z/20260914T083000Z&details=${encodeURIComponent("You are warmly invited to celebrate the Holy Marriage & Reception of Vinoliya & Sam Daniel!\n\n- Dinner & Reception: Sunday 13 Sept 7:00 PM at Chamanthi Venue, Hosur\n- Holy Marriage: Monday 14 Sept 10:00 AM at Sacred Heart Church, Hosur")}&location=${encodeURIComponent("Sacred Heart Church, Hosur, Tamil Nadu")}`}
+                  href={`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent("Vinoliya & Sam Daniel's Holy Marriage & Reception")}&dates=20260913T133000Z/20260914T041500Z&details=${encodeURIComponent("You are warmly invited to celebrate the Holy Marriage & Reception of Vinoliya & Sam Daniel!\n\n- Dinner & Reception: Sunday 13 Sept 7:00 PM at Chamanthi Venue, Hosur\n- Holy Marriage: Monday 14 Sept 9:45 AM at Sacred Heart Church, Hosur")}&location=${encodeURIComponent("Sacred Heart Church, Hosur, Tamil Nadu")}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[11px] tracking-[0.25em] uppercase text-[#8B73A6] font-bold hover:text-[#4A3763] transition-colors mt-2 cursor-pointer inline-flex items-center gap-1.5"
@@ -750,7 +750,7 @@ export default function App() {
                         onChange={(e) => setRsvpForm({ ...rsvpForm, marriage: e.target.checked })}
                         className="accent-[#4A3763] rounded w-3.5 h-3.5"
                       />
-                      <span>Holy Marriage (14 Sept 10:00 AM)</span>
+                      <span>Holy Marriage (14 Sept 9:45 AM)</span>
                     </label>
                   </div>
                 </div>
