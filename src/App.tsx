@@ -5,6 +5,7 @@ import bgMusic from '../assets/Music/the_mountain-wedding-522480.mp3';
 import marriageImg from '../assets/New Custom Images/Gemini_Generated_Image_hbtocchbtocchbto.png';
 import receptionImg from '../assets/New Custom Images/Gemini_Generated_Image_f1c2qf1c2qf1c2qf.png';
 import welcomeCoupleImg from '../assets/Image/Gemini_Generated_Image_cm759wcm759wcm75-removebg-preview.png';
+import botanicalFrameImg from '../assets/Image/botanical_frame.png';
 
 // Watercolor Monochromatic Sage Green Petals Data (24 Multi-Layered Floating Petals)
 const fallingPetalsData = [
@@ -288,6 +289,15 @@ export default function App() {
       {/* Ambient Watercolor Cloud Glows (Responsive Sizing) */}
       <div className="fixed top-0 right-0 w-[350px] sm:w-[550px] h-[350px] sm:h-[550px] bg-[#C8DCC8]/70 rounded-full filter blur-[80px] sm:blur-[100px] pointer-events-none z-0" />
       <div className="fixed bottom-0 left-0 w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] bg-[#D4E4D4]/80 rounded-full filter blur-[70px] sm:blur-[90px] pointer-events-none z-0" />
+
+      {/* Botanical Watercolor Foliage Frame Overlay */}
+      <div className="fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
+        <img
+          src={botanicalFrameImg}
+          alt="Botanical Foliage Frame"
+          className="w-full h-full object-cover opacity-90 mix-blend-multiply"
+        />
+      </div>
 
       {/* Top Fixed Bar: Minimal Progress & Audio Control */}
       <header className="w-full max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-4xl px-3 sm:px-6 pt-[calc(0.75rem+env(safe-area-inset-top))] sm:pt-4 flex items-center justify-between z-40 relative flex-shrink-0">
