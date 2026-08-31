@@ -323,14 +323,14 @@ export default function App() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15, filter: "blur(6px)" }}
               transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
-              className="w-full flex flex-col items-center justify-center text-center my-auto cursor-pointer"
+              className="w-full flex flex-col items-center justify-center text-center my-auto cursor-pointer py-2"
               onClick={nextScene}
             >
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.5, delay: 0.2 }}
-                className="w-8 h-8 sm:w-9 sm:h-9 mb-2 sm:mb-3 border border-[#A8C3A8] bg-[#D4E4D4] rounded-full flex items-center justify-center text-[#233B2B] text-base sm:text-lg shadow-sm"
+                className="w-9 h-9 sm:w-10 sm:h-10 mb-2 sm:mb-3 border border-[#A8C3A8] bg-[#D4E4D4] rounded-full flex items-center justify-center text-[#233B2B] text-lg sm:text-xl shadow-sm"
               >
                 ✦
               </motion.div>
@@ -339,22 +339,22 @@ export default function App() {
                 initial={{ opacity: 0, letterSpacing: '0.2em' }}
                 animate={{ opacity: 1, letterSpacing: '0.3em' }}
                 transition={{ duration: 1.5, delay: 0.3 }}
-                className="text-xs sm:text-sm md:text-base font-bold text-[#4A6B52] uppercase tracking-[0.25em] sm:tracking-[0.3em] mb-2 sm:mb-3"
+                className="text-xs sm:text-sm md:text-base font-bold text-[#3B5B43] uppercase tracking-[0.3em] mb-2 sm:mb-3"
               >
                 OUR FOREVER STARTS HERE
               </motion.h2>
 
-              {/* Transparent Illustration Image - Larger Mobile & Desktop Sizing */}
+              {/* Transparent Illustration Image - Prominent Mobile & Desktop Sizing */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.85, y: 10 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 1.2, delay: 0.4 }}
-                className="w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 max-h-[35vh] sm:max-h-[40vh] my-2 sm:my-3 relative flex items-center justify-center pointer-events-none"
+                className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[400px] lg:h-[400px] max-h-[46vh] sm:max-h-[50vh] my-3 sm:my-5 relative flex items-center justify-center pointer-events-none"
               >
                 <img
                   src={welcomeCoupleImg}
                   alt="Wedding Illustration"
-                  className="w-full h-full object-contain filter drop-shadow-lg"
+                  className="w-full h-full object-contain filter drop-shadow-xl scale-110 sm:scale-100"
                 />
               </motion.div>
 
@@ -362,7 +362,7 @@ export default function App() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.5, delay: 0.7 }}
-                className="text-base sm:text-xl md:text-2xl font-medium text-[#233B2B] font-['Cormorant_Garamond',_serif] italic leading-relaxed max-w-[340px] sm:max-w-[460px] md:max-w-[540px] px-2"
+                className="text-lg sm:text-2xl md:text-3xl font-medium text-[#1E3324] font-['Cormorant_Garamond',_serif] italic leading-snug sm:leading-relaxed max-w-[360px] sm:max-w-[480px] md:max-w-[560px] px-3 my-1"
               >
                 “With the blessings of God<br />
                 and the love of our families,<br />
@@ -374,14 +374,14 @@ export default function App() {
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 1.4, delay: 0.9 }}
-                className="w-16 h-[1px] bg-[#A8C3A8] my-3 sm:my-4"
+                className="w-16 h-[1.5px] bg-[#A8C3A8] my-3 sm:my-4"
               />
 
               <motion.p
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 0.85 }}
+                animate={{ opacity: 0.9 }}
                 transition={{ duration: 1.5, delay: 1.1 }}
-                className="text-xs sm:text-sm font-['Montserrat'] tracking-[0.25em] uppercase text-[#5B7B63] font-bold"
+                className="text-xs sm:text-sm font-['Montserrat'] tracking-[0.3em] uppercase text-[#3B5B43] font-bold"
               >
                 TAP ANYWHERE TO BEGIN
               </motion.p>
@@ -396,24 +396,24 @@ export default function App() {
               animate={{ opacity: 1, filter: "blur(0px)" }}
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 1.1, ease: "easeOut" }}
-              className="w-full flex flex-col items-center justify-center text-center my-auto cursor-pointer"
+              className="w-full flex flex-col items-center justify-center text-center my-auto cursor-pointer py-4"
               onClick={nextScene}
             >
               <motion.span
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 0.9, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-xs sm:text-sm md:text-base font-bold text-[#4A6B52] uppercase tracking-[0.3em] mb-4 sm:mb-6"
+                className="text-xs sm:text-sm md:text-base font-bold text-[#3B5B43] uppercase tracking-[0.3em] mb-4 sm:mb-6"
               >
                 THE WEDDING OF
               </motion.span>
 
-              <div className="flex flex-col items-center gap-1 my-2">
+              <div className="flex flex-col items-center gap-1.5 my-3 sm:my-5">
                 <motion.h1
                   initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ duration: 1, delay: 0.4 }}
-                  className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal text-[#233B2B] tracking-wide leading-tight font-['Alex_Brush',_cursive] drop-shadow-sm"
+                  className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-normal text-[#1E3324] tracking-wide leading-none font-['Alex_Brush',_cursive] drop-shadow-md py-1"
                 >
                   Vinoliya
                 </motion.h1>
@@ -422,7 +422,7 @@ export default function App() {
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, delay: 0.7 }}
-                  className="text-2xl sm:text-3xl font-light text-[#4A6B52] my-1 italic font-['Cormorant_Garamond',_serif]"
+                  className="text-3xl sm:text-4xl font-light text-[#3B5B43] my-2 italic font-['Cormorant_Garamond',_serif]"
                 >
                   &
                 </motion.span>
@@ -431,7 +431,7 @@ export default function App() {
                   initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ duration: 1, delay: 0.9 }}
-                  className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal text-[#233B2B] tracking-wide leading-tight font-['Alex_Brush',_cursive] drop-shadow-sm"
+                  className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-normal text-[#1E3324] tracking-wide leading-none font-['Alex_Brush',_cursive] drop-shadow-md py-1"
                 >
                   Sam Daniel
                 </motion.h1>
@@ -439,9 +439,9 @@ export default function App() {
 
               <motion.p
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 0.85 }}
+                animate={{ opacity: 0.9 }}
                 transition={{ duration: 0.8, delay: 1.2 }}
-                className="text-xs sm:text-sm md:text-base uppercase tracking-[0.25em] text-[#5B7B63] mt-6 sm:mt-8 font-bold"
+                className="text-xs sm:text-sm md:text-base uppercase tracking-[0.3em] text-[#3B5B43] mt-8 sm:mt-10 font-bold"
               >
                 TOGETHER WITH THEIR FAMILIES
               </motion.p>
