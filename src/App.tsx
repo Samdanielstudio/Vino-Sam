@@ -331,7 +331,7 @@ export default function App() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.5, delay: 0.2 }}
-                className="w-7 h-7 sm:w-8 sm:h-8 mb-2 border border-[#A8C3A8] bg-[#D4E4D4] rounded-full flex items-center justify-center text-[#233B2B] text-sm sm:text-base shadow-sm"
+                className="w-8 h-8 sm:w-9 sm:h-9 mb-2 sm:mb-3 border border-[#A8C3A8] bg-[#D4E4D4] rounded-full flex items-center justify-center text-[#233B2B] text-base sm:text-lg shadow-sm"
               >
                 ✦
               </motion.div>
@@ -340,17 +340,17 @@ export default function App() {
                 initial={{ opacity: 0, letterSpacing: '0.2em' }}
                 animate={{ opacity: 1, letterSpacing: '0.3em' }}
                 transition={{ duration: 1.5, delay: 0.3 }}
-                className="text-[11px] sm:text-xs md:text-sm font-bold text-[#4A6B52] uppercase tracking-[0.25em] sm:tracking-[0.3em] mb-1 sm:mb-2"
+                className="text-xs sm:text-sm md:text-base font-bold text-[#4A6B52] uppercase tracking-[0.25em] sm:tracking-[0.3em] mb-2 sm:mb-3"
               >
                 OUR FOREVER STARTS HERE
               </motion.h2>
 
-              {/* Transparent Illustration Image - Fluid Multi-Device Responsive Scaling */}
+              {/* Transparent Illustration Image - Larger Mobile & Desktop Sizing */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.85, y: 10 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 1.2, delay: 0.4 }}
-                className="w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 max-h-[30vh] sm:max-h-[35vh] my-1 sm:my-2 relative flex items-center justify-center pointer-events-none"
+                className="w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 max-h-[35vh] sm:max-h-[40vh] my-2 sm:my-3 relative flex items-center justify-center pointer-events-none"
               >
                 <img
                   src={welcomeCoupleImg}
@@ -363,7 +363,7 @@ export default function App() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.5, delay: 0.7 }}
-                className="text-sm sm:text-lg md:text-2xl font-normal text-[#233B2B] font-['Cormorant_Garamond',_serif] italic leading-relaxed max-w-[320px] sm:max-w-[420px] md:max-w-[500px]"
+                className="text-base sm:text-xl md:text-2xl font-medium text-[#233B2B] font-['Cormorant_Garamond',_serif] italic leading-relaxed max-w-[340px] sm:max-w-[460px] md:max-w-[540px] px-2"
               >
                 “With the blessings of God<br />
                 and the love of our families,<br />
@@ -375,14 +375,14 @@ export default function App() {
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 1.4, delay: 0.9 }}
-                className="w-12 h-[1px] bg-[#A8C3A8] my-2 sm:my-3"
+                className="w-16 h-[1px] bg-[#A8C3A8] my-3 sm:my-4"
               />
 
               <motion.p
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 0.75 }}
+                animate={{ opacity: 0.85 }}
                 transition={{ duration: 1.5, delay: 1.1 }}
-                className="text-[10px] sm:text-[11px] font-['Montserrat'] tracking-[0.25em] uppercase text-[#5B7B63]"
+                className="text-xs sm:text-sm font-['Montserrat'] tracking-[0.25em] uppercase text-[#5B7B63] font-bold"
               >
                 TAP ANYWHERE TO BEGIN
               </motion.p>
@@ -409,12 +409,12 @@ export default function App() {
                 THE WEDDING OF
               </motion.span>
 
-              <div className="flex flex-col items-center gap-0.5 my-1">
+              <div className="flex flex-col items-center gap-1 my-2">
                 <motion.h1
                   initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ duration: 1, delay: 0.4 }}
-                  className="text-4xl sm:text-6xl md:text-7xl font-normal text-[#233B2B] tracking-wide leading-tight font-['Alex_Brush',_cursive] drop-shadow-sm"
+                  className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal text-[#233B2B] tracking-wide leading-tight font-['Alex_Brush',_cursive] drop-shadow-sm"
                 >
                   Vinoliya
                 </motion.h1>
@@ -423,7 +423,7 @@ export default function App() {
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, delay: 0.7 }}
-                  className="text-lg sm:text-2xl font-light text-[#4A6B52] my-0.5 italic font-['Cormorant_Garamond',_serif]"
+                  className="text-2xl sm:text-3xl font-light text-[#4A6B52] my-1 italic font-['Cormorant_Garamond',_serif]"
                 >
                   &
                 </motion.span>
@@ -432,7 +432,7 @@ export default function App() {
                   initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ duration: 1, delay: 0.9 }}
-                  className="text-4xl sm:text-6xl md:text-7xl font-normal text-[#233B2B] tracking-wide leading-tight font-['Alex_Brush',_cursive] drop-shadow-sm"
+                  className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal text-[#233B2B] tracking-wide leading-tight font-['Alex_Brush',_cursive] drop-shadow-sm"
                 >
                   Sam Daniel
                 </motion.h1>
@@ -442,7 +442,7 @@ export default function App() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.85 }}
                 transition={{ duration: 0.8, delay: 1.2 }}
-                className="text-[11px] sm:text-xs md:text-sm uppercase tracking-[0.25em] text-[#5B7B63] mt-6 sm:mt-8 font-semibold"
+                className="text-xs sm:text-sm md:text-base uppercase tracking-[0.25em] text-[#5B7B63] mt-6 sm:mt-8 font-bold"
               >
                 TOGETHER WITH THEIR FAMILIES
               </motion.p>
@@ -463,22 +463,22 @@ export default function App() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.95 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-xs sm:text-sm font-bold text-[#4A6B52] uppercase tracking-[0.3em] mb-3"
+                className="text-xs sm:text-sm md:text-base font-bold text-[#4A6B52] uppercase tracking-[0.3em] mb-3 sm:mb-4"
               >
                 WEDDING OCCASION DETAILS
               </motion.span>
 
               {/* Responsive Occasion Layout: Single column stacked on mobile, 2-column grid on tablets/desktops */}
-              <div className="w-full space-y-3.5 md:space-y-0 md:grid md:grid-cols-2 md:gap-5 text-left max-h-[calc(100dvh-130px)] overflow-y-auto no-scrollbar py-1">
+              <div className="w-full space-y-4 md:space-y-0 md:grid md:grid-cols-2 md:gap-5 text-left max-h-[calc(100dvh-130px)] overflow-y-auto no-scrollbar py-1">
                 {/* Occasion 1: Dinner & Reception */}
                 <motion.div
                   initial={{ opacity: 0, x: -15 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
-                  className="bg-[#EEF5EE]/95 backdrop-blur-md border border-[#A8C3A8] p-3.5 sm:p-5 rounded-3xl shadow-sm relative overflow-hidden flex flex-col justify-between"
+                  className="bg-[#EEF5EE]/95 backdrop-blur-md border border-[#A8C3A8] p-4 sm:p-5 rounded-3xl shadow-sm relative overflow-hidden flex flex-col justify-between"
                 >
                   {/* Photo Header */}
-                  <div className="relative rounded-xl overflow-hidden h-28 sm:h-36 md:h-40 w-full mb-3 shadow-inner bg-stone-900 group">
+                  <div className="relative rounded-2xl overflow-hidden h-32 sm:h-40 md:h-44 w-full mb-3.5 shadow-inner bg-stone-900 group">
                     <img
                       src={receptionImg}
                       alt="Dinner & Reception"
@@ -486,8 +486,8 @@ export default function App() {
                     />
                   </div>
 
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-[10px] sm:text-xs uppercase tracking-[0.18em] bg-[#D4E4D4] text-[#233B2B] px-3 py-1 rounded-full font-bold border border-[#A8C3A8]">
+                  <div className="flex items-center justify-between mb-2.5">
+                    <span className="text-xs sm:text-sm uppercase tracking-[0.18em] bg-[#D4E4D4] text-[#233B2B] px-3.5 py-1 rounded-full font-bold border border-[#A8C3A8]">
                       DINNER & RECEPTION
                     </span>
 
@@ -495,19 +495,19 @@ export default function App() {
                       href="https://maps.app.goo.gl/wqMKv7hmZn3ws7ub9"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 bg-[#233B2B] hover:bg-[#16271C] text-[#E6EFE6] px-3.5 sm:px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-bold tracking-wider uppercase shadow-md transition-all duration-200 active:scale-95 cursor-pointer border border-[#A8C3A8]/40"
+                      className="inline-flex items-center gap-1.5 bg-[#233B2B] hover:bg-[#16271C] text-[#E6EFE6] px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold tracking-wider uppercase shadow-md transition-all duration-200 active:scale-95 cursor-pointer border border-[#A8C3A8]/40"
                     >
-                      <MapPin size={13} className="text-[#A8C3A8]" />
+                      <MapPin size={14} className="text-[#A8C3A8]" />
                       <span>MAP →</span>
                     </a>
                   </div>
 
                   {/* Prominent Hero Date */}
-                  <div className="flex items-baseline gap-2 mb-1">
-                    <span className="text-4xl sm:text-5xl font-bold font-['Cormorant_Garamond',_serif] text-[#233B2B] leading-none">13</span>
+                  <div className="flex items-baseline gap-2.5 mb-1.5">
+                    <span className="text-5xl sm:text-6xl font-bold font-['Cormorant_Garamond',_serif] text-[#233B2B] leading-none">13</span>
                     <div className="flex flex-col text-left">
                       <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.18em] text-[#4A6B52]">SEPTEMBER 2026</span>
-                      <span className="text-[10px] sm:text-xs font-semibold text-[#5B7B63]">SUNDAY • 7:00 PM ONWARDS</span>
+                      <span className="text-xs sm:text-sm font-semibold text-[#5B7B63]">SUNDAY • 7:00 PM ONWARDS</span>
                     </div>
                   </div>
 
@@ -521,10 +521,10 @@ export default function App() {
                   initial={{ opacity: 0, x: 15 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.6 }}
-                  className="bg-[#EEF5EE]/95 backdrop-blur-md border border-[#A8C3A8] p-3.5 sm:p-5 rounded-3xl shadow-sm relative overflow-hidden flex flex-col justify-between"
+                  className="bg-[#EEF5EE]/95 backdrop-blur-md border border-[#A8C3A8] p-4 sm:p-5 rounded-3xl shadow-sm relative overflow-hidden flex flex-col justify-between"
                 >
                   {/* Photo Header */}
-                  <div className="relative rounded-xl overflow-hidden h-28 sm:h-36 md:h-40 w-full mb-3 shadow-inner bg-stone-900 group">
+                  <div className="relative rounded-2xl overflow-hidden h-32 sm:h-40 md:h-44 w-full mb-3.5 shadow-inner bg-stone-900 group">
                     <img
                       src={marriageImg}
                       alt="Holy Marriage Ceremony"
@@ -532,8 +532,8 @@ export default function App() {
                     />
                   </div>
 
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-[10px] sm:text-xs uppercase tracking-[0.18em] bg-[#D4E4D4] text-[#233B2B] px-3 py-1 rounded-full font-bold border border-[#A8C3A8]">
+                  <div className="flex items-center justify-between mb-2.5">
+                    <span className="text-xs sm:text-sm uppercase tracking-[0.18em] bg-[#D4E4D4] text-[#233B2B] px-3.5 py-1 rounded-full font-bold border border-[#A8C3A8]">
                       HOLY MARRIAGE
                     </span>
 
@@ -541,19 +541,19 @@ export default function App() {
                       href="https://maps.app.goo.gl/2QGp6t3MdBhHzTXL6"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 bg-[#233B2B] hover:bg-[#16271C] text-[#E6EFE6] px-3.5 sm:px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-bold tracking-wider uppercase shadow-md transition-all duration-200 active:scale-95 cursor-pointer border border-[#A8C3A8]/40"
+                      className="inline-flex items-center gap-1.5 bg-[#233B2B] hover:bg-[#16271C] text-[#E6EFE6] px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold tracking-wider uppercase shadow-md transition-all duration-200 active:scale-95 cursor-pointer border border-[#A8C3A8]/40"
                     >
-                      <MapPin size={13} className="text-[#A8C3A8]" />
+                      <MapPin size={14} className="text-[#A8C3A8]" />
                       <span>MAP →</span>
                     </a>
                   </div>
 
                   {/* Prominent Hero Date */}
-                  <div className="flex items-baseline gap-2 mb-1">
-                    <span className="text-4xl sm:text-5xl font-bold font-['Cormorant_Garamond',_serif] text-[#233B2B] leading-none">14</span>
+                  <div className="flex items-baseline gap-2.5 mb-1.5">
+                    <span className="text-5xl sm:text-6xl font-bold font-['Cormorant_Garamond',_serif] text-[#233B2B] leading-none">14</span>
                     <div className="flex flex-col text-left">
                       <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.18em] text-[#4A6B52]">SEPTEMBER 2026</span>
-                      <span className="text-[10px] sm:text-xs font-semibold text-[#5B7B63]">MONDAY • 9:45 AM CEREMONY</span>
+                      <span className="text-xs sm:text-sm font-semibold text-[#5B7B63]">MONDAY • 9:45 AM CEREMONY</span>
                     </div>
                   </div>
 
@@ -579,39 +579,39 @@ export default function App() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.9 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-xs sm:text-sm font-bold text-[#4A6B52] uppercase tracking-[0.3em] mb-4 sm:mb-8"
+                className="text-xs sm:text-sm md:text-base font-bold text-[#4A6B52] uppercase tracking-[0.3em] mb-4 sm:mb-8"
               >
                 COUNTING DOWN TO OUR WEDDING DAY
               </motion.p>
 
               {/* Minimal Pure Sage Green Serif Numerals */}
-              <div className="grid grid-cols-4 gap-2 sm:gap-6 w-full max-w-xs sm:max-w-md md:max-w-lg mx-auto mb-3 sm:mb-4">
+              <div className="grid grid-cols-4 gap-2 sm:gap-6 w-full max-w-xs sm:max-w-md md:max-w-lg mx-auto mb-3 sm:mb-5">
                 <div className="flex flex-col items-center">
-                  <span className="text-3xl sm:text-5xl md:text-6xl font-bold font-['Cormorant_Garamond',_serif] text-[#233B2B]">
+                  <span className="text-4xl sm:text-5xl md:text-6xl font-bold font-['Cormorant_Garamond',_serif] text-[#233B2B]">
                     {timeLeft.days}
                   </span>
-                  <span className="text-[8px] sm:text-[10px] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#4A6B52] mt-1 font-bold">DAYS</span>
+                  <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#4A6B52] mt-1 font-bold">DAYS</span>
                 </div>
 
                 <div className="flex flex-col items-center">
-                  <span className="text-3xl sm:text-5xl md:text-6xl font-bold font-['Cormorant_Garamond',_serif] text-[#233B2B]">
+                  <span className="text-4xl sm:text-5xl md:text-6xl font-bold font-['Cormorant_Garamond',_serif] text-[#233B2B]">
                     {timeLeft.hours}
                   </span>
-                  <span className="text-[8px] sm:text-[10px] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#4A6B52] mt-1 font-bold">HOURS</span>
+                  <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#4A6B52] mt-1 font-bold">HOURS</span>
                 </div>
 
                 <div className="flex flex-col items-center">
-                  <span className="text-3xl sm:text-5xl md:text-6xl font-bold font-['Cormorant_Garamond',_serif] text-[#233B2B]">
+                  <span className="text-4xl sm:text-5xl md:text-6xl font-bold font-['Cormorant_Garamond',_serif] text-[#233B2B]">
                     {timeLeft.minutes}
                   </span>
-                  <span className="text-[8px] sm:text-[10px] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#4A6B52] mt-1 font-bold">MINS</span>
+                  <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#4A6B52] mt-1 font-bold">MINS</span>
                 </div>
 
                 <div className="flex flex-col items-center">
-                  <span className="text-3xl sm:text-5xl md:text-6xl font-bold font-['Cormorant_Garamond',_serif] text-[#233B2B]">
+                  <span className="text-4xl sm:text-5xl md:text-6xl font-bold font-['Cormorant_Garamond',_serif] text-[#233B2B]">
                     {timeLeft.seconds}
                   </span>
-                  <span className="text-[8px] sm:text-[10px] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#4A6B52] mt-1 font-bold">SECS</span>
+                  <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#4A6B52] mt-1 font-bold">SECS</span>
                 </div>
               </div>
 
@@ -620,14 +620,14 @@ export default function App() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="w-full max-w-[260px] sm:max-w-[290px] mx-auto my-3 sm:my-4 text-center"
+                className="w-full max-w-[280px] sm:max-w-[320px] mx-auto my-3 sm:my-5 text-center"
               >
-                <div className="text-[11px] font-bold tracking-[0.25em] uppercase text-[#4A6B52] mb-2">
+                <div className="text-xs sm:text-sm font-bold tracking-[0.25em] uppercase text-[#4A6B52] mb-2 sm:mb-3">
                   SEPTEMBER 2026
                 </div>
 
                 {/* Days of week header */}
-                <div className="grid grid-cols-7 text-center text-[9px] font-semibold text-[#5B7B63]/70 uppercase mb-1">
+                <div className="grid grid-cols-7 text-center text-xs font-bold text-[#5B7B63]/80 uppercase mb-1.5">
                   <span>S</span>
                   <span>M</span>
                   <span>T</span>
@@ -638,7 +638,7 @@ export default function App() {
                 </div>
 
                 {/* Days Grid for September 2026 */}
-                <div className="grid grid-cols-7 text-center text-xs gap-y-1 items-center justify-items-center font-['Montserrat']">
+                <div className="grid grid-cols-7 text-center text-xs sm:text-sm gap-y-1 items-center justify-items-center font-['Montserrat']">
                   {/* Empty offset slots for Sun & Mon before 1st Sept */}
                   <div />
                   <div />
@@ -652,7 +652,7 @@ export default function App() {
                       return (
                         <div
                           key={day}
-                          className="flex items-center justify-center w-6 h-6 rounded-full bg-[#233B2B] text-[#E6EFE6] font-bold text-[11px] shadow-sm cursor-pointer"
+                          className="flex items-center justify-center w-7 h-7 rounded-full bg-[#233B2B] text-[#E6EFE6] font-bold text-xs sm:text-sm shadow-sm cursor-pointer"
                           title="13 Sept - Reception (7:00 PM)"
                         >
                           13
@@ -664,7 +664,7 @@ export default function App() {
                       return (
                         <div
                           key={day}
-                          className="flex items-center justify-center w-6 h-6 rounded-full bg-[#4A6B52] text-[#E6EFE6] font-bold text-[11px] shadow-sm cursor-pointer"
+                          className="flex items-center justify-center w-7 h-7 rounded-full bg-[#4A6B52] text-[#E6EFE6] font-bold text-xs sm:text-sm shadow-sm cursor-pointer"
                           title="14 Sept - Holy Marriage (9:45 AM)"
                         >
                           14
@@ -673,7 +673,7 @@ export default function App() {
                     }
 
                     return (
-                      <div key={day} className="w-6 h-6 flex items-center justify-center text-[#233B2B]/60 text-[11px]">
+                      <div key={day} className="w-7 h-7 flex items-center justify-center text-[#233B2B]/70 text-xs sm:text-sm font-medium">
                         {day}
                       </div>
                     );
@@ -681,28 +681,28 @@ export default function App() {
                 </div>
 
                 {/* Ultra-Minimal Legend */}
-                <div className="flex items-center justify-center gap-3 mt-2 text-[10px] font-['Montserrat'] font-medium text-[#5B7B63]">
-                  <span className="flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#233B2B]" />
+                <div className="flex items-center justify-center gap-3.5 mt-2.5 text-xs sm:text-sm font-['Montserrat'] font-semibold text-[#5B7B63]">
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-[#233B2B]" />
                     <span>13 Reception</span>
                   </span>
                   <span>•</span>
-                  <span className="flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#4A6B52]" />
+                  <span className="flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-[#4A6B52]" />
                     <span>14 Wedding</span>
                   </span>
                 </div>
               </motion.div>
 
               {/* RSVP Action Link */}
-              <div className="flex flex-col items-center gap-3 sm:gap-4 w-full max-w-xs sm:max-w-sm">
+              <div className="flex flex-col items-center gap-3.5 sm:gap-4 w-full max-w-xs sm:max-w-sm">
                 <button
                   onClick={() => setIsRsvpModalOpen(true)}
-                  className="w-full py-3.5 px-4 border-2 border-[#233B2B] text-[#233B2B] hover:bg-[#233B2B] hover:text-[#E6EFE6] rounded-full text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-sm active:scale-95"
+                  className="w-full py-3.5 px-4 border-2 border-[#233B2B] text-[#233B2B] hover:bg-[#233B2B] hover:text-[#E6EFE6] rounded-full text-xs sm:text-sm font-bold tracking-[0.2em] uppercase transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-sm active:scale-95"
                 >
                   {rsvpSubmitted ? (
                     <>
-                      <CheckCircle2 size={15} className="text-[#4A6B52]" />
+                      <CheckCircle2 size={16} className="text-[#4A6B52]" />
                       <span>RSVP CONFIRMED ✨</span>
                     </>
                   ) : (
@@ -714,9 +714,9 @@ export default function App() {
                   href={`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent("Vinoliya & Sam Daniel's Holy Marriage & Reception")}&dates=20260913T133000Z/20260914T041500Z&details=${encodeURIComponent("You are warmly invited to celebrate the Holy Marriage & Reception of Vinoliya & Sam Daniel!\n\n- Dinner & Reception: Sunday 13 Sept 7:00 PM at Chamanthi Venue, Hosur\n- Holy Marriage: Monday 14 Sept 9:45 AM at Sacred Heart Church, Hosur")}&location=${encodeURIComponent("Sacred Heart Church, Hosur, Tamil Nadu")}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[10px] sm:text-[11px] tracking-[0.2em] sm:tracking-[0.25em] uppercase text-[#5B7B63] font-bold hover:text-[#233B2B] transition-colors mt-1 cursor-pointer inline-flex items-center gap-1.5"
+                  className="text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.25em] uppercase text-[#5B7B63] font-bold hover:text-[#233B2B] transition-colors mt-1 cursor-pointer inline-flex items-center gap-1.5"
                 >
-                  <Calendar size={13} className="text-[#4A6B52]" />
+                  <Calendar size={14} className="text-[#4A6B52]" />
                   <span>SAVE THE DATE</span>
                 </a>
               </div>
