@@ -727,7 +727,7 @@ export default function App() {
       </main>
 
       {/* Bottom Fixed Navigation Bar: Mobile & Desktop Navigation CTA */}
-      <footer className="w-full max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-4xl px-3 sm:px-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))] sm:pb-8 pt-2 flex items-center justify-between z-40 relative flex-shrink-0">
+      <footer className="w-full max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-4xl px-4 sm:px-6 pb-[calc(2.75rem+env(safe-area-inset-bottom))] sm:pb-10 pt-2 flex items-center justify-between z-40 relative flex-shrink-0 mb-1">
         {/* Previous Scene Button */}
         {scene > 1 ? (
           <button
