@@ -287,19 +287,17 @@ export default function App() {
 
       {/* Ambient Watercolor Cloud Glows (Responsive Sizing) */}
       <div className="fixed top-0 right-0 w-[350px] sm:w-[550px] h-[350px] sm:h-[550px] bg-[#C8DCC8]/70 rounded-full filter blur-[80px] sm:blur-[100px] pointer-events-none z-0" />
-      <div className="fixed bottom-0 left-0 w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] bg-[#D4E4D4]/80 rounded-full filter blur-[70px] sm:blur-[90px] pointer-events-none z-0" />
-
-      {/* Top Fixed Bar: Minimal Progress & Audio Control */}
-      <header className="w-full max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-4xl px-3 sm:px-6 pt-3 sm:pt-4 flex items-center justify-between z-40 relative flex-shrink-0">
+      <div className="fixed bottom-0 left-0 w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] bg-[#D4E4D4]/80 rounded-full filter blur-[70px] sm:blur-[90px] pointer-events-none z-0"       {/* Top Fixed Bar: Minimal Progress & Audio Control */}
+      <header className="w-full max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-4xl px-3 sm:px-6 pt-[calc(0.75rem+env(safe-area-inset-top))] sm:pt-4 flex items-center justify-between z-40 relative flex-shrink-0">
         {/* Minimal Audio Toggle Pill */}
         <button
           onClick={toggleMusic}
-          className="flex items-center gap-2 bg-[#D4E4D4]/85 hover:bg-[#C5D8C5] backdrop-blur-md px-4 py-2 rounded-full border border-[#A8C3A8] shadow-sm transition-all duration-300 active:scale-95 cursor-pointer text-xs sm:text-sm font-bold tracking-wider text-[#233B2B]"
+          className="flex items-center gap-2 bg-[#D4E4D4]/85 hover:bg-[#C5D8C5] backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#A8C3A8] shadow-sm transition-all duration-300 active:scale-95 cursor-pointer text-xs sm:text-sm font-bold tracking-wider text-[#233B2B]"
         >
           <motion.div
             animate={{ rotate: isPlaying ? 360 : 0 }}
             transition={{ repeat: isPlaying ? Infinity : 0, duration: 4, ease: "linear" }}
-            className="w-4 h-4 rounded-full bg-[#233B2B] flex items-center justify-center text-white"
+            className="w-3.5 h-3.5 rounded-full bg-[#233B2B] flex items-center justify-center text-white"
           >
             <span className="w-1 h-1 rounded-full bg-[#E6EFE6]" />
           </motion.div>
@@ -307,15 +305,16 @@ export default function App() {
         </button>
 
         {/* Scene Indicator Counter */}
-        <div className="text-xs sm:text-sm font-extrabold tracking-[0.25em] text-[#233B2B] bg-[#D4E4D4]/80 backdrop-blur-md px-4 py-1.5 rounded-full border border-[#A8C3A8]">
+        <div className="text-xs sm:text-sm font-extrabold tracking-[0.25em] text-[#233B2B] bg-[#D4E4D4]/80 backdrop-blur-md px-3.5 py-1 rounded-full border border-[#A8C3A8]">
           {String(scene).padStart(2, '0')} / {String(totalScenes).padStart(2, '0')}
         </div>
       </header>
 
       {/* Main Viewport */}
-      <main className="w-full max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-4xl flex-1 flex flex-col items-center justify-center px-3 sm:px-6 py-2 sm:py-4 z-10 relative overflow-hidden my-auto">
+      <main className="w-full max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-4xl flex-1 flex flex-col items-center justify-center px-3 sm:px-6 py-1 z-10 relative overflow-y-auto no-scrollbar min-h-0 my-auto">
         <AnimatePresence mode="wait">
-                 {/* ================= 1. WELCOME ARRIVAL ================= */}
+          
+          {/* ================= 1. WELCOME ARRIVAL ================= */}
           {scene === 1 && (
             <motion.div
               key="scene-welcome"
@@ -323,14 +322,14 @@ export default function App() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15, filter: "blur(6px)" }}
               transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
-              className="w-full flex flex-col items-center justify-center text-center my-auto cursor-pointer py-2"
+              className="w-full flex flex-col items-center justify-center text-center my-auto cursor-pointer py-1"
               onClick={nextScene}
             >
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.5, delay: 0.2 }}
-                className="w-9 h-9 sm:w-10 sm:h-10 mb-2 sm:mb-3 border border-[#A8C3A8] bg-[#D4E4D4] rounded-full flex items-center justify-center text-[#233B2B] text-lg sm:text-xl shadow-sm"
+                className="w-8 h-8 sm:w-9 sm:h-9 mb-1.5 border border-[#A8C3A8] bg-[#D4E4D4] rounded-full flex items-center justify-center text-[#233B2B] text-base sm:text-lg shadow-sm"
               >
                 ✦
               </motion.div>
@@ -339,7 +338,7 @@ export default function App() {
                 initial={{ opacity: 0, letterSpacing: '0.2em' }}
                 animate={{ opacity: 1, letterSpacing: '0.3em' }}
                 transition={{ duration: 1.5, delay: 0.3 }}
-                className="text-sm sm:text-base md:text-lg font-extrabold text-[#3B5B43] uppercase tracking-[0.3em] mb-2 sm:mb-3"
+                className="text-xs sm:text-sm md:text-base font-extrabold text-[#3B5B43] uppercase tracking-[0.3em] mb-1.5 sm:mb-2"
               >
                 OUR FOREVER STARTS HERE
               </motion.h2>
@@ -349,12 +348,12 @@ export default function App() {
                 initial={{ opacity: 0, scale: 0.85, y: 10 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 1.2, delay: 0.4 }}
-                className="w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[400px] lg:h-[400px] max-h-[46vh] sm:max-h-[50vh] my-3 sm:my-5 relative flex items-center justify-center pointer-events-none"
+                className="w-56 h-56 sm:w-72 sm:h-72 md:w-88 md:h-88 max-h-[38vh] sm:max-h-[44vh] my-2 sm:my-4 relative flex items-center justify-center pointer-events-none"
               >
                 <img
                   src={welcomeCoupleImg}
                   alt="Wedding Illustration"
-                  className="w-full h-full object-contain filter drop-shadow-xl scale-110 sm:scale-100"
+                  className="w-full h-full object-contain filter drop-shadow-xl scale-105 sm:scale-100"
                 />
               </motion.div>
 
@@ -362,7 +361,7 @@ export default function App() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.5, delay: 0.7 }}
-                className="text-xl sm:text-2xl md:text-3xl font-semibold text-[#1E3324] font-['Cormorant_Garamond',_serif] italic leading-relaxed max-w-[380px] sm:max-w-[500px] md:max-w-[580px] px-3 my-2"
+                className="text-lg sm:text-2xl md:text-3xl font-semibold text-[#1E3324] font-['Cormorant_Garamond',_serif] italic leading-snug sm:leading-relaxed max-w-[360px] sm:max-w-[480px] md:max-w-[560px] px-2 my-1"
               >
                 “With the blessings of God<br />
                 and the love of our families,<br />
@@ -374,14 +373,14 @@ export default function App() {
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 1.4, delay: 0.9 }}
-                className="w-16 h-[2px] bg-[#A8C3A8] my-3 sm:my-4"
+                className="w-14 h-[1.5px] bg-[#A8C3A8] my-2 sm:my-3"
               />
 
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.95 }}
                 transition={{ duration: 1.5, delay: 1.1 }}
-                className="text-xs sm:text-sm font-['Montserrat'] tracking-[0.3em] uppercase text-[#3B5B43] font-extrabold"
+                className="text-[11px] sm:text-xs font-['Montserrat'] tracking-[0.3em] uppercase text-[#3B5B43] font-extrabold"
               >
                 TAP ANYWHERE TO BEGIN
               </motion.p>
@@ -396,24 +395,24 @@ export default function App() {
               animate={{ opacity: 1, filter: "blur(0px)" }}
               exit={{ opacity: 0, y: -15 }}
               transition={{ duration: 1.1, ease: "easeOut" }}
-              className="w-full flex flex-col items-center justify-center text-center my-auto cursor-pointer py-4"
+              className="w-full flex flex-col items-center justify-center text-center my-auto cursor-pointer py-2"
               onClick={nextScene}
             >
               <motion.span
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 0.95, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-sm sm:text-base md:text-lg font-extrabold text-[#3B5B43] uppercase tracking-[0.3em] mb-4 sm:mb-6"
+                className="text-xs sm:text-sm md:text-base font-extrabold text-[#3B5B43] uppercase tracking-[0.3em] mb-2 sm:mb-4"
               >
                 THE WEDDING OF
               </motion.span>
 
-              <div className="flex flex-col items-center gap-2 my-3 sm:my-5">
+              <div className="flex flex-col items-center gap-1 my-2 sm:my-4">
                 <motion.h1
                   initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ duration: 1, delay: 0.4 }}
-                  className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-normal text-[#1E3324] tracking-wide leading-none font-['Alex_Brush',_cursive] drop-shadow-md py-1.5"
+                  className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-normal text-[#1E3324] tracking-wide leading-none font-['Alex_Brush',_cursive] drop-shadow-md py-1"
                 >
                   Vinoliya
                 </motion.h1>
@@ -422,7 +421,7 @@ export default function App() {
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, delay: 0.7 }}
-                  className="text-3xl sm:text-4xl font-normal text-[#3B5B43] my-2 italic font-['Cormorant_Garamond',_serif]"
+                  className="text-2xl sm:text-4xl font-normal text-[#3B5B43] my-1 italic font-['Cormorant_Garamond',_serif]"
                 >
                   &
                 </motion.span>
@@ -431,7 +430,7 @@ export default function App() {
                   initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ duration: 1, delay: 0.9 }}
-                  className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-normal text-[#1E3324] tracking-wide leading-none font-['Alex_Brush',_cursive] drop-shadow-md py-1.5"
+                  className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-normal text-[#1E3324] tracking-wide leading-none font-['Alex_Brush',_cursive] drop-shadow-md py-1"
                 >
                   Sam Daniel
                 </motion.h1>
@@ -441,7 +440,7 @@ export default function App() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.95 }}
                 transition={{ duration: 0.8, delay: 1.2 }}
-                className="text-sm sm:text-base md:text-lg uppercase tracking-[0.3em] text-[#3B5B43] mt-8 sm:mt-10 font-extrabold"
+                className="text-xs sm:text-sm md:text-base uppercase tracking-[0.3em] text-[#3B5B43] mt-5 sm:mt-8 font-extrabold"
               >
                 TOGETHER WITH THEIR FAMILIES
               </motion.p>
@@ -456,28 +455,28 @@ export default function App() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 1.0 }}
-              className="w-full flex flex-col items-center justify-center text-center my-auto"
+              className="w-full flex flex-col items-center justify-center text-center my-auto max-h-[calc(100dvh-150px)] overflow-hidden"
             >
               <motion.span
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.95 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-sm sm:text-base md:text-lg font-extrabold text-[#3B5B43] uppercase tracking-[0.3em] mb-3 sm:mb-5"
+                className="text-xs sm:text-sm md:text-base font-extrabold text-[#3B5B43] uppercase tracking-[0.3em] mb-2 sm:mb-3 flex-shrink-0"
               >
                 WEDDING OCCASION DETAILS
               </motion.span>
 
               {/* Responsive Occasion Layout: Single column stacked on mobile, 2-column grid on tablets/desktops */}
-              <div className="w-full space-y-4 md:space-y-0 md:grid md:grid-cols-2 md:gap-5 text-left max-h-[calc(100dvh-130px)] overflow-y-auto no-scrollbar py-1">
+              <div className="w-full space-y-3 sm:space-y-4 md:space-y-0 md:grid md:grid-cols-2 md:gap-5 text-left max-h-[calc(100dvh-180px)] overflow-y-auto no-scrollbar py-1">
                 {/* Occasion 1: Dinner & Reception */}
                 <motion.div
                   initial={{ opacity: 0, x: -15 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
-                  className="bg-[#EEF5EE]/95 backdrop-blur-md border border-[#A8C3A8] p-4 sm:p-5 rounded-3xl shadow-sm relative overflow-hidden flex flex-col justify-between"
+                  className="bg-[#EEF5EE]/95 backdrop-blur-md border border-[#A8C3A8] p-3 sm:p-5 rounded-3xl shadow-sm relative overflow-hidden flex flex-col justify-between"
                 >
                   {/* Photo Header */}
-                  <div className="relative rounded-2xl overflow-hidden h-36 sm:h-44 md:h-48 w-full mb-3.5 shadow-inner bg-stone-900 group">
+                  <div className="relative rounded-2xl overflow-hidden h-28 sm:h-38 md:h-44 w-full mb-2.5 shadow-inner bg-stone-900 group">
                     <img
                       src={receptionImg}
                       alt="Dinner & Reception"
@@ -485,8 +484,8 @@ export default function App() {
                     />
                   </div>
 
-                  <div className="flex items-center justify-between mb-2.5">
-                    <span className="text-xs sm:text-sm uppercase tracking-[0.18em] bg-[#D4E4D4] text-[#233B2B] px-4 py-1.5 rounded-full font-extrabold border border-[#A8C3A8]">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[11px] sm:text-xs uppercase tracking-[0.18em] bg-[#D4E4D4] text-[#233B2B] px-3 py-1 rounded-full font-extrabold border border-[#A8C3A8]">
                       DINNER & RECEPTION
                     </span>
 
@@ -494,23 +493,23 @@ export default function App() {
                       href="https://maps.app.goo.gl/wqMKv7hmZn3ws7ub9"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 bg-[#233B2B] hover:bg-[#16271C] text-[#E6EFE6] px-4 py-2 rounded-full text-xs sm:text-sm font-extrabold tracking-wider uppercase shadow-md transition-all duration-200 active:scale-95 cursor-pointer border border-[#A8C3A8]/40"
+                      className="inline-flex items-center gap-1.5 bg-[#233B2B] hover:bg-[#16271C] text-[#E6EFE6] px-3.5 py-1 rounded-full text-[11px] sm:text-xs font-extrabold tracking-wider uppercase shadow-md transition-all duration-200 active:scale-95 cursor-pointer border border-[#A8C3A8]/40"
                     >
-                      <MapPin size={14} className="text-[#A8C3A8]" />
+                      <MapPin size={13} className="text-[#A8C3A8]" />
                       <span>MAP →</span>
                     </a>
                   </div>
 
                   {/* Prominent Hero Date */}
-                  <div className="flex items-baseline gap-2.5 mb-1.5">
-                    <span className="text-5xl sm:text-6xl font-bold font-['Cormorant_Garamond',_serif] text-[#233B2B] leading-none">13</span>
+                  <div className="flex items-baseline gap-2 mb-1">
+                    <span className="text-4xl sm:text-5xl font-bold font-['Cormorant_Garamond',_serif] text-[#233B2B] leading-none">13</span>
                     <div className="flex flex-col text-left">
                       <span className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.18em] text-[#3B5B43]">SEPTEMBER 2026</span>
-                      <span className="text-xs sm:text-sm font-bold text-[#5B7B63]">SUNDAY • 7:00 PM ONWARDS</span>
+                      <span className="text-[11px] sm:text-xs font-bold text-[#5B7B63]">SUNDAY • 7:00 PM ONWARDS</span>
                     </div>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-[#5B7B63] font-['Montserrat'] font-semibold">
+                  <p className="text-[11px] sm:text-xs text-[#5B7B63] font-['Montserrat'] font-semibold">
                     Chamanthi Venue • Hosur, Tamil Nadu
                   </p>
                 </motion.div>
@@ -520,10 +519,10 @@ export default function App() {
                   initial={{ opacity: 0, x: 15 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.6 }}
-                  className="bg-[#EEF5EE]/95 backdrop-blur-md border border-[#A8C3A8] p-4 sm:p-5 rounded-3xl shadow-sm relative overflow-hidden flex flex-col justify-between"
+                  className="bg-[#EEF5EE]/95 backdrop-blur-md border border-[#A8C3A8] p-3 sm:p-5 rounded-3xl shadow-sm relative overflow-hidden flex flex-col justify-between"
                 >
                   {/* Photo Header */}
-                  <div className="relative rounded-2xl overflow-hidden h-36 sm:h-44 md:h-48 w-full mb-3.5 shadow-inner bg-stone-900 group">
+                  <div className="relative rounded-2xl overflow-hidden h-28 sm:h-38 md:h-44 w-full mb-2.5 shadow-inner bg-stone-900 group">
                     <img
                       src={marriageImg}
                       alt="Holy Marriage Ceremony"
@@ -531,8 +530,8 @@ export default function App() {
                     />
                   </div>
 
-                  <div className="flex items-center justify-between mb-2.5">
-                    <span className="text-xs sm:text-sm uppercase tracking-[0.18em] bg-[#D4E4D4] text-[#233B2B] px-4 py-1.5 rounded-full font-extrabold border border-[#A8C3A8]">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-[11px] sm:text-xs uppercase tracking-[0.18em] bg-[#D4E4D4] text-[#233B2B] px-3 py-1 rounded-full font-extrabold border border-[#A8C3A8]">
                       HOLY MARRIAGE
                     </span>
 
@@ -540,23 +539,23 @@ export default function App() {
                       href="https://maps.app.goo.gl/2QGp6t3MdBhHzTXL6"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 bg-[#233B2B] hover:bg-[#16271C] text-[#E6EFE6] px-4 py-2 rounded-full text-xs sm:text-sm font-extrabold tracking-wider uppercase shadow-md transition-all duration-200 active:scale-95 cursor-pointer border border-[#A8C3A8]/40"
+                      className="inline-flex items-center gap-1.5 bg-[#233B2B] hover:bg-[#16271C] text-[#E6EFE6] px-3.5 py-1 rounded-full text-[11px] sm:text-xs font-extrabold tracking-wider uppercase shadow-md transition-all duration-200 active:scale-95 cursor-pointer border border-[#A8C3A8]/40"
                     >
-                      <MapPin size={14} className="text-[#A8C3A8]" />
+                      <MapPin size={13} className="text-[#A8C3A8]" />
                       <span>MAP →</span>
                     </a>
                   </div>
 
                   {/* Prominent Hero Date */}
-                  <div className="flex items-baseline gap-2.5 mb-1.5">
-                    <span className="text-5xl sm:text-6xl font-bold font-['Cormorant_Garamond',_serif] text-[#233B2B] leading-none">14</span>
+                  <div className="flex items-baseline gap-2 mb-1">
+                    <span className="text-4xl sm:text-5xl font-bold font-['Cormorant_Garamond',_serif] text-[#233B2B] leading-none">14</span>
                     <div className="flex flex-col text-left">
                       <span className="text-xs sm:text-sm font-extrabold uppercase tracking-[0.18em] text-[#3B5B43]">SEPTEMBER 2026</span>
-                      <span className="text-xs sm:text-sm font-bold text-[#5B7B63]">MONDAY • 9:45 AM CEREMONY</span>
+                      <span className="text-[11px] sm:text-xs font-bold text-[#5B7B63]">MONDAY • 9:45 AM CEREMONY</span>
                     </div>
                   </div>
 
-                  <p className="text-xs sm:text-sm text-[#5B7B63] font-['Montserrat'] font-semibold">
+                  <p className="text-[11px] sm:text-xs text-[#5B7B63] font-['Montserrat'] font-semibold">
                     Sacred Heart Church • Hosur, Tamil Nadu
                   </p>
                 </motion.div>
@@ -578,39 +577,39 @@ export default function App() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.95 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-sm sm:text-base md:text-lg font-extrabold text-[#3B5B43] uppercase tracking-[0.3em] mb-4 sm:mb-8"
+                className="text-xs sm:text-sm md:text-base font-extrabold text-[#3B5B43] uppercase tracking-[0.3em] mb-2 sm:mb-5"
               >
                 COUNTING DOWN TO OUR WEDDING DAY
               </motion.p>
 
               {/* Minimal Pure Sage Green Serif Numerals */}
-              <div className="grid grid-cols-4 gap-2 sm:gap-6 w-full max-w-xs sm:max-w-md md:max-w-lg mx-auto mb-4 sm:mb-6">
+              <div className="grid grid-cols-4 gap-2 sm:gap-6 w-full max-w-xs sm:max-w-md md:max-w-lg mx-auto mb-2 sm:mb-4">
                 <div className="flex flex-col items-center">
-                  <span className="text-5xl sm:text-6xl md:text-7xl font-bold font-['Cormorant_Garamond',_serif] text-[#233B2B]">
+                  <span className="text-4xl sm:text-5xl md:text-6xl font-bold font-['Cormorant_Garamond',_serif] text-[#233B2B]">
                     {timeLeft.days}
                   </span>
-                  <span className="text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#3B5B43] mt-1 font-extrabold">DAYS</span>
+                  <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#3B5B43] mt-0.5 font-extrabold">DAYS</span>
                 </div>
 
                 <div className="flex flex-col items-center">
-                  <span className="text-5xl sm:text-6xl md:text-7xl font-bold font-['Cormorant_Garamond',_serif] text-[#233B2B]">
+                  <span className="text-4xl sm:text-5xl md:text-6xl font-bold font-['Cormorant_Garamond',_serif] text-[#233B2B]">
                     {timeLeft.hours}
                   </span>
-                  <span className="text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#3B5B43] mt-1 font-extrabold">HOURS</span>
+                  <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#3B5B43] mt-0.5 font-extrabold">HOURS</span>
                 </div>
 
                 <div className="flex flex-col items-center">
-                  <span className="text-5xl sm:text-6xl md:text-7xl font-bold font-['Cormorant_Garamond',_serif] text-[#233B2B]">
+                  <span className="text-4xl sm:text-5xl md:text-6xl font-bold font-['Cormorant_Garamond',_serif] text-[#233B2B]">
                     {timeLeft.minutes}
                   </span>
-                  <span className="text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#3B5B43] mt-1 font-extrabold">MINS</span>
+                  <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#3B5B43] mt-0.5 font-extrabold">MINS</span>
                 </div>
 
                 <div className="flex flex-col items-center">
-                  <span className="text-5xl sm:text-6xl md:text-7xl font-bold font-['Cormorant_Garamond',_serif] text-[#233B2B]">
+                  <span className="text-4xl sm:text-5xl md:text-6xl font-bold font-['Cormorant_Garamond',_serif] text-[#233B2B]">
                     {timeLeft.seconds}
                   </span>
-                  <span className="text-xs sm:text-sm uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#3B5B43] mt-1 font-extrabold">SECS</span>
+                  <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#3B5B43] mt-0.5 font-extrabold">SECS</span>
                 </div>
               </div>
 
@@ -619,14 +618,14 @@ export default function App() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className="w-full max-w-[300px] sm:max-w-[340px] mx-auto my-3 sm:my-5 text-center"
+                className="w-full max-w-[280px] sm:max-w-[320px] mx-auto my-2 sm:my-4 text-center"
               >
-                <div className="text-xs sm:text-sm font-extrabold tracking-[0.25em] uppercase text-[#3B5B43] mb-2 sm:mb-3">
+                <div className="text-xs sm:text-sm font-extrabold tracking-[0.25em] uppercase text-[#3B5B43] mb-1.5 sm:mb-2.5">
                   SEPTEMBER 2026
                 </div>
 
                 {/* Days of week header */}
-                <div className="grid grid-cols-7 text-center text-xs sm:text-sm font-extrabold text-[#5B7B63] uppercase mb-2">
+                <div className="grid grid-cols-7 text-center text-xs font-extrabold text-[#5B7B63] uppercase mb-1">
                   <span>S</span>
                   <span>M</span>
                   <span>T</span>
@@ -637,7 +636,7 @@ export default function App() {
                 </div>
 
                 {/* Days Grid for September 2026 */}
-                <div className="grid grid-cols-7 text-center text-xs sm:text-sm gap-y-1.5 items-center justify-items-center font-['Montserrat']">
+                <div className="grid grid-cols-7 text-center text-xs sm:text-sm gap-y-1 items-center justify-items-center font-['Montserrat']">
                   {/* Empty offset slots for Sun & Mon before 1st Sept */}
                   <div />
                   <div />
@@ -651,7 +650,7 @@ export default function App() {
                       return (
                         <div
                           key={day}
-                          className="flex items-center justify-center w-8 h-8 rounded-full bg-[#233B2B] text-[#E6EFE6] font-bold text-xs sm:text-sm shadow-sm cursor-pointer"
+                          className="flex items-center justify-center w-7 h-7 rounded-full bg-[#233B2B] text-[#E6EFE6] font-bold text-xs shadow-sm cursor-pointer"
                           title="13 Sept - Reception (7:00 PM)"
                         >
                           13
@@ -663,7 +662,7 @@ export default function App() {
                       return (
                         <div
                           key={day}
-                          className="flex items-center justify-center w-8 h-8 rounded-full bg-[#4A6B52] text-[#E6EFE6] font-bold text-xs sm:text-sm shadow-sm cursor-pointer"
+                          className="flex items-center justify-center w-7 h-7 rounded-full bg-[#4A6B52] text-[#E6EFE6] font-bold text-xs shadow-sm cursor-pointer"
                           title="14 Sept - Holy Marriage (9:45 AM)"
                         >
                           14
@@ -672,7 +671,7 @@ export default function App() {
                     }
 
                     return (
-                      <div key={day} className="w-8 h-8 flex items-center justify-center text-[#233B2B]/80 text-xs sm:text-sm font-bold">
+                      <div key={day} className="w-7 h-7 flex items-center justify-center text-[#233B2B]/80 text-xs font-bold">
                         {day}
                       </div>
                     );
@@ -680,28 +679,28 @@ export default function App() {
                 </div>
 
                 {/* Ultra-Minimal Legend */}
-                <div className="flex items-center justify-center gap-4 mt-3 text-xs sm:text-sm font-['Montserrat'] font-bold text-[#5B7B63]">
+                <div className="flex items-center justify-center gap-3.5 mt-2 text-xs sm:text-sm font-['Montserrat'] font-bold text-[#5B7B63]">
                   <span className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#233B2B]" />
+                    <span className="w-2 h-2 rounded-full bg-[#233B2B]" />
                     <span>13 Reception</span>
                   </span>
                   <span>•</span>
                   <span className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#4A6B52]" />
+                    <span className="w-2 h-2 rounded-full bg-[#4A6B52]" />
                     <span>14 Wedding</span>
                   </span>
                 </div>
               </motion.div>
 
               {/* RSVP Action Link */}
-              <div className="flex flex-col items-center gap-3.5 sm:gap-4 w-full max-w-xs sm:max-w-sm">
+              <div className="flex flex-col items-center gap-2.5 sm:gap-3.5 w-full max-w-xs sm:max-w-sm">
                 <button
                   onClick={() => setIsRsvpModalOpen(true)}
-                  className="w-full py-4 px-5 border-2 border-[#233B2B] text-[#233B2B] hover:bg-[#233B2B] hover:text-[#E6EFE6] rounded-full text-xs sm:text-sm font-extrabold tracking-[0.2em] uppercase transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-sm active:scale-95"
+                  className="w-full py-3 px-4 border-2 border-[#233B2B] text-[#233B2B] hover:bg-[#233B2B] hover:text-[#E6EFE6] rounded-full text-xs sm:text-sm font-extrabold tracking-[0.2em] uppercase transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-sm active:scale-95"
                 >
                   {rsvpSubmitted ? (
                     <>
-                      <CheckCircle2 size={16} className="text-[#4A6B52]" />
+                      <CheckCircle2 size={15} className="text-[#4A6B52]" />
                       <span>RSVP CONFIRMED ✨</span>
                     </>
                   ) : (
@@ -713,9 +712,9 @@ export default function App() {
                   href={`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent("Vinoliya & Sam Daniel's Holy Marriage & Reception")}&dates=20260913T133000Z/20260914T041500Z&details=${encodeURIComponent("You are warmly invited to celebrate the Holy Marriage & Reception of Vinoliya & Sam Daniel!\n\n- Dinner & Reception: Sunday 13 Sept 7:00 PM at Chamanthi Venue, Hosur\n- Holy Marriage: Monday 14 Sept 9:45 AM at Sacred Heart Church, Hosur")}&location=${encodeURIComponent("Sacred Heart Church, Hosur, Tamil Nadu")}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs sm:text-sm tracking-[0.2em] sm:tracking-[0.25em] uppercase text-[#5B7B63] font-extrabold hover:text-[#233B2B] transition-colors mt-1 cursor-pointer inline-flex items-center gap-1.5"
+                  className="text-xs tracking-[0.2em] uppercase text-[#5B7B63] font-extrabold hover:text-[#233B2B] transition-colors cursor-pointer inline-flex items-center gap-1.5"
                 >
-                  <Calendar size={14} className="text-[#4A6B52]" />
+                  <Calendar size={13} className="text-[#4A6B52]" />
                   <span>SAVE THE DATE</span>
                 </a>
               </div>
@@ -726,7 +725,7 @@ export default function App() {
       </main>
 
       {/* Bottom Fixed Navigation Bar: Mobile & Desktop Navigation CTA */}
-      <footer className="w-full max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-4xl px-4 sm:px-6 pb-[calc(2.75rem+env(safe-area-inset-bottom))] sm:pb-10 pt-2 flex items-center justify-between z-40 relative flex-shrink-0 mb-1">
+      <footer className="w-full max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-4xl px-4 sm:px-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))] sm:pb-8 pt-1 flex items-center justify-between z-40 relative flex-shrink-0">
         {/* Previous Scene Button */}
         {scene > 1 ? (
           <button
