@@ -290,12 +290,12 @@ export default function App() {
       <div className="fixed top-0 right-0 w-[350px] sm:w-[550px] h-[350px] sm:h-[550px] bg-[#C8DCC8]/70 rounded-full filter blur-[80px] sm:blur-[100px] pointer-events-none z-0" />
       <div className="fixed bottom-0 left-0 w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] bg-[#D4E4D4]/80 rounded-full filter blur-[70px] sm:blur-[90px] pointer-events-none z-0" />
 
-      {/* Botanical Watercolor Foliage Frame Overlay */}
+      {/* Botanical Watercolor Foliage Frame Overlay (Soft Blurred Watercolor Aesthetic) */}
       <div className="fixed inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
         <img
           src={botanicalFrameImg}
           alt="Botanical Foliage Frame"
-          className="w-full h-full object-cover opacity-90 mix-blend-multiply"
+          className="w-full h-full object-cover opacity-80 mix-blend-multiply filter blur-[4px] scale-105"
         />
       </div>
 
