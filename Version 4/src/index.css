@@ -5,12 +5,14 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100vh;
+  height: 100dvh;
   max-height: 100vh;
+  max-height: 100dvh;
   overflow: hidden;
-  touch-action: none;
+  touch-action: manipulation;
   font-family: 'Cinzel', serif;
-  background-color: #FAF8FC;
-  color: #4A3763;
+  background-color: #E6EFE6;
+  color: #233B2B;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -24,6 +26,6 @@ html, body {
 }
 
 .paper-grain {
-  background-image: radial-gradient(#D9CEBE 0.5px, transparent 0.5px);
+  background-image: radial-gradient(#B8CBB8 0.65px, transparent 0.65px);
   background-size: 24px 24px;
 }

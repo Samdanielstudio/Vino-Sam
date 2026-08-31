@@ -4,8 +4,9 @@ import { ChevronRight, ChevronLeft, MapPin, Calendar, CheckCircle2, Clock, X, Se
 import bgMusic from '../assets/Music/the_mountain-wedding-522480.mp3';
 import marriageImg from '../assets/New Custom Images/Gemini_Generated_Image_hbtocchbtocchbto.png';
 import receptionImg from '../assets/New Custom Images/Gemini_Generated_Image_f1c2qf1c2qf1c2qf.png';
+import welcomeCoupleImg from '../assets/Image/Gemini_Generated_Image_cm759wcm759wcm75-removebg-preview.png';
 
-// Watercolor Lavender Petals Data (24 Multi-Layered Floating Petals)
+// Watercolor Monochromatic Sage Green Petals Data (24 Multi-Layered Floating Petals)
 const fallingPetalsData = [
   { id: 1, x: '3%', delay: 0, duration: 14, size: 18, blur: 'blur-[1.5px]', opacity: 0.75, depthScale: 1.2 },
   { id: 2, x: '8%', delay: 3, duration: 18, size: 14, blur: 'blur-[0px]', opacity: 0.85, depthScale: 1.0 },
@@ -33,7 +34,7 @@ const fallingPetalsData = [
   { id: 24, x: '86%', delay: 7.5, duration: 19, size: 16, blur: 'blur-[0.5px]', opacity: 0.9, depthScale: 1.1 }
 ];
 
-const FallingLavenderPetal = ({ x, delay, duration, size, blur, opacity, depthScale }: typeof fallingPetalsData[0]) => (
+const FallingSagePetalDark = ({ x, delay, duration, size, blur, opacity, depthScale }: typeof fallingPetalsData[0]) => (
   <motion.div
     className={`fixed pointer-events-none ${blur} z-10`}
     style={{ left: x, top: '-5%' }}
@@ -49,23 +50,53 @@ const FallingLavenderPetal = ({ x, delay, duration, size, blur, opacity, depthSc
     <svg width={size * depthScale} height={size * depthScale * 1.5} viewBox="0 0 20 30" fill="none">
       <path
         d="M 10 0 C 18 8, 20 20, 10 30 C 0 20, 2 8, 10 0 Z"
-        fill="url(#lavenderPetalGrad)"
-        fillOpacity="0.75"
-        stroke="#AA94C2"
+        fill="url(#sageDarkGrad)"
+        fillOpacity="0.8"
+        stroke="#5B7B63"
         strokeWidth="0.5"
       />
       <defs>
-        <linearGradient id="lavenderPetalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#ECE4F5" stopOpacity="0.9" />
-          <stop offset="50%" stopColor="#AA94C2" stopOpacity="0.7" />
-          <stop offset="100%" stopColor="#4A3763" stopOpacity="0.8" />
+        <linearGradient id="sageDarkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#E6EFE6" stopOpacity="0.9" />
+          <stop offset="50%" stopColor="#7FA37F" stopOpacity="0.75" />
+          <stop offset="100%" stopColor="#233B2B" stopOpacity="0.85" />
         </linearGradient>
       </defs>
     </svg>
   </motion.div>
 );
 
-
+const FallingSagePetalLight = ({ x, delay, duration, size, blur, opacity, depthScale }: typeof fallingPetalsData[0]) => (
+  <motion.div
+    className={`fixed pointer-events-none ${blur} z-10`}
+    style={{ left: x, top: '-5%' }}
+    initial={{ y: '-5vh', x: 0, rotate: 0, opacity: 0 }}
+    animate={{
+      y: ['0vh', '105vh'],
+      x: [0, -18, 15, -20, 8],
+      rotate: [0, -140, -280, -420],
+      opacity: [0, opacity, opacity, opacity * 0.7, 0],
+    }}
+    transition={{ duration, repeat: Infinity, ease: 'linear', delay }}
+  >
+    <svg width={size * depthScale} height={size * depthScale * 1.5} viewBox="0 0 20 30" fill="none">
+      <path
+        d="M 10 0 C 18 8, 20 20, 10 30 C 0 20, 2 8, 10 0 Z"
+        fill="url(#sageLightGrad)"
+        fillOpacity="0.8"
+        stroke="#8CAE8C"
+        strokeWidth="0.5"
+      />
+      <defs>
+        <linearGradient id="sageLightGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#F2F7F2" stopOpacity="0.9" />
+          <stop offset="50%" stopColor="#B8D3B8" stopOpacity="0.75" />
+          <stop offset="100%" stopColor="#4A6B52" stopOpacity="0.85" />
+        </linearGradient>
+      </defs>
+    </svg>
+  </motion.div>
+);
 
 export default function App() {
   const [scene, setScene] = useState(1);
@@ -228,45 +259,61 @@ export default function App() {
     return () => clearInterval(timer);
   }, []);
 
+  const handleBackgroundClick = (e: React.MouseEvent) => {
+    if (isRsvpModalOpen) return;
+    const target = e.target as HTMLElement;
+    const interactiveElement = target.closest('button, a, input, textarea, select, label, [role="button"]');
+    if (!interactiveElement && scene < totalScenes) {
+      nextScene();
+    }
+  };
+
   return (
-    <div className="h-screen max-h-screen w-full bg-[#FAF8FC] text-[#4A3763] font-['Cinzel',_serif] flex flex-col justify-between items-center relative overflow-hidden select-none paper-grain">
+    <div
+      onClick={handleBackgroundClick}
+      className="h-screen h-[100dvh] max-h-screen max-h-[100dvh] w-full bg-[#E6EFE6] text-[#233B2B] font-['Cinzel',_serif] flex flex-col justify-between items-center relative overflow-hidden select-none paper-grain px-3 sm:px-6 py-2 sm:py-4 cursor-pointer"
+    >
       {/* Background Audio (50% Volume Default) */}
       <audio ref={audioRef} loop autoPlay preload="auto" src={bgMusic} />
 
-      {/* Falling Watercolor Lavender Petals */}
-      {fallingPetalsData.map((petal) => (
-        <FallingLavenderPetal key={petal.id} {...petal} />
+      {/* Falling Pure Sage Green Petals */}
+      {fallingPetalsData.map((petal, index) => (
+        index % 2 === 0 ? (
+          <FallingSagePetalDark key={petal.id} {...petal} />
+        ) : (
+          <FallingSagePetalLight key={petal.id} {...petal} />
+        )
       ))}
 
-      {/* Ambient Watercolor Cloud Glows */}
-      <div className="fixed top-0 right-0 w-[550px] h-[550px] bg-[#ECE4F5]/60 rounded-full filter blur-[100px] pointer-events-none z-0" />
-      <div className="fixed bottom-0 right-0 w-[450px] h-[450px] bg-[#DFD3EC]/50 rounded-full filter blur-[90px] pointer-events-none z-0" />
+      {/* Ambient Watercolor Cloud Glows (Responsive Sizing) */}
+      <div className="fixed top-0 right-0 w-[350px] sm:w-[550px] h-[350px] sm:h-[550px] bg-[#C8DCC8]/70 rounded-full filter blur-[80px] sm:blur-[100px] pointer-events-none z-0" />
+      <div className="fixed bottom-0 left-0 w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] bg-[#D4E4D4]/80 rounded-full filter blur-[70px] sm:blur-[90px] pointer-events-none z-0" />
 
       {/* Top Fixed Bar: Minimal Progress & Audio Control */}
-      <header className="w-full max-w-lg px-6 pt-4 flex items-center justify-between z-40 relative flex-shrink-0">
+      <header className="w-full max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-4xl px-2 sm:px-6 pt-2 sm:pt-4 flex items-center justify-between z-40 relative flex-shrink-0">
         {/* Minimal Audio Toggle Pill */}
         <button
           onClick={toggleMusic}
-          className="flex items-center gap-2 bg-[#F4EFF9]/85 hover:bg-[#EBE2F5] backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#DDD0EB] shadow-sm transition-all duration-300 active:scale-95 cursor-pointer text-xs font-semibold tracking-wider text-[#4A3763]"
+          className="flex items-center gap-2 bg-[#D4E4D4]/85 hover:bg-[#C5D8C5] backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#A8C3A8] shadow-sm transition-all duration-300 active:scale-95 cursor-pointer text-xs font-semibold tracking-wider text-[#233B2B]"
         >
           <motion.div
             animate={{ rotate: isPlaying ? 360 : 0 }}
             transition={{ repeat: isPlaying ? Infinity : 0, duration: 4, ease: "linear" }}
-            className="w-4 h-4 rounded-full bg-[#4A3763] flex items-center justify-center text-white"
+            className="w-4 h-4 rounded-full bg-[#233B2B] flex items-center justify-center text-white"
           >
-            <span className="w-1 h-1 rounded-full bg-[#FAF8FC]" />
+            <span className="w-1 h-1 rounded-full bg-[#E6EFE6]" />
           </motion.div>
           <span>{isPlaying ? 'PAUSE' : 'MUSIC'}</span>
         </button>
 
         {/* Scene Indicator Counter */}
-        <div className="text-xs font-bold tracking-[0.25em] text-[#8B73A6] bg-[#F4EFF9]/80 backdrop-blur-md px-3.5 py-1 rounded-full border border-[#DDD0EB]">
+        <div className="text-xs font-bold tracking-[0.25em] text-[#233B2B] bg-[#D4E4D4]/80 backdrop-blur-md px-3.5 py-1 rounded-full border border-[#A8C3A8]">
           {String(scene).padStart(2, '0')} / {String(totalScenes).padStart(2, '0')}
         </div>
       </header>
 
       {/* Main Viewport */}
-      <main className="w-full max-w-md flex-1 flex flex-col items-center justify-center px-4 py-2 z-10 relative overflow-hidden my-auto">
+      <main className="w-full max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-4xl flex-1 flex flex-col items-center justify-center px-2 sm:px-6 py-1 sm:py-2 z-10 relative overflow-hidden my-auto">
         <AnimatePresence mode="wait">
           
           {/* ================= 1. WELCOME ARRIVAL ================= */}
@@ -284,41 +331,58 @@ export default function App() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.5, delay: 0.2 }}
-                className="w-8 h-8 mb-4 border border-[#C8A97E]/50 rounded-full flex items-center justify-center text-[#C8A97E] text-base"
+                className="w-7 h-7 sm:w-8 sm:h-8 mb-2 border border-[#A8C3A8] bg-[#D4E4D4] rounded-full flex items-center justify-center text-[#233B2B] text-sm sm:text-base shadow-sm"
               >
                 ✦
               </motion.div>
 
               <motion.h2
                 initial={{ opacity: 0, letterSpacing: '0.2em' }}
-                animate={{ opacity: 1, letterSpacing: '0.35em' }}
-                transition={{ duration: 1.5, delay: 0.4 }}
-                className="text-xs md:text-sm font-bold text-[#8B73A6] uppercase tracking-[0.35em] mb-3"
+                animate={{ opacity: 1, letterSpacing: '0.3em' }}
+                transition={{ duration: 1.5, delay: 0.3 }}
+                className="text-[11px] sm:text-xs md:text-sm font-bold text-[#4A6B52] uppercase tracking-[0.25em] sm:tracking-[0.3em] mb-1 sm:mb-2"
               >
-                WELCOME
+                OUR FOREVER STARTS HERE
               </motion.h2>
+
+              {/* Transparent Illustration Image - Fluid Multi-Device Responsive Scaling */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.85, y: 10 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 1.2, delay: 0.4 }}
+                className="w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 max-h-[30vh] sm:max-h-[35vh] my-1 sm:my-2 relative flex items-center justify-center pointer-events-none"
+              >
+                <img
+                  src={welcomeCoupleImg}
+                  alt="Wedding Illustration"
+                  className="w-full h-full object-contain filter drop-shadow-lg"
+                />
+              </motion.div>
 
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.5, delay: 0.6 }}
-                className="text-xl md:text-2xl font-normal text-[#4A3763] font-['Cormorant_Garamond',_serif] italic leading-relaxed max-w-[320px]"
+                transition={{ duration: 1.5, delay: 0.7 }}
+                className="text-sm sm:text-lg md:text-2xl font-normal text-[#233B2B] font-['Cormorant_Garamond',_serif] italic leading-relaxed max-w-[320px] sm:max-w-[420px] md:max-w-[500px]"
               >
-                “You are warmly invited to celebrate the love & marriage of our lives.”
+                “With the blessings of God<br />
+                and the love of our families,<br />
+                we invite you to celebrate<br />
+                the beginning of our life together.”
               </motion.p>
 
               <motion.div
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 1.4, delay: 0.9 }}
-                className="w-12 h-[1px] bg-[#C8A97E]/70 my-5"
+                className="w-12 h-[1px] bg-[#A8C3A8] my-2 sm:my-3"
               />
 
               <motion.p
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 0.6 }}
-                transition={{ duration: 1.5, delay: 1.2 }}
-                className="text-[11px] font-['Montserrat'] tracking-[0.25em] uppercase text-[#A28BBF]"
+                animate={{ opacity: 0.75 }}
+                transition={{ duration: 1.5, delay: 1.1 }}
+                className="text-[10px] sm:text-[11px] font-['Montserrat'] tracking-[0.25em] uppercase text-[#5B7B63]"
               >
                 TAP ANYWHERE TO BEGIN
               </motion.p>
@@ -338,9 +402,9 @@ export default function App() {
             >
               <motion.span
                 initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 0.8, y: 0 }}
+                animate={{ opacity: 0.9, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-xs uppercase tracking-[0.35em] text-[#8B73A6] mb-6 font-bold"
+                className="text-xs sm:text-sm md:text-base font-bold text-[#4A6B52] uppercase tracking-[0.3em] mb-4 sm:mb-6"
               >
                 THE WEDDING OF
               </motion.span>
@@ -350,7 +414,7 @@ export default function App() {
                   initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ duration: 1, delay: 0.4 }}
-                  className="text-5xl md:text-6xl font-normal text-[#4A3763] tracking-wide leading-tight font-['Alex_Brush',_cursive] drop-shadow-sm"
+                  className="text-4xl sm:text-6xl md:text-7xl font-normal text-[#233B2B] tracking-wide leading-tight font-['Alex_Brush',_cursive] drop-shadow-sm"
                 >
                   Vinoliya
                 </motion.h1>
@@ -359,7 +423,7 @@ export default function App() {
                   initial={{ opacity: 0, scale: 0.5 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8, delay: 0.7 }}
-                  className="text-lg md:text-xl font-light text-[#C8A97E] my-0.5 italic font-['Cormorant_Garamond',_serif]"
+                  className="text-lg sm:text-2xl font-light text-[#4A6B52] my-0.5 italic font-['Cormorant_Garamond',_serif]"
                 >
                   &
                 </motion.span>
@@ -368,7 +432,7 @@ export default function App() {
                   initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
                   animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                   transition={{ duration: 1, delay: 0.9 }}
-                  className="text-5xl md:text-6xl font-normal text-[#4A3763] tracking-wide leading-tight font-['Alex_Brush',_cursive] drop-shadow-sm"
+                  className="text-4xl sm:text-6xl md:text-7xl font-normal text-[#233B2B] tracking-wide leading-tight font-['Alex_Brush',_cursive] drop-shadow-sm"
                 >
                   Sam Daniel
                 </motion.h1>
@@ -376,9 +440,9 @@ export default function App() {
 
               <motion.p
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 0.75 }}
+                animate={{ opacity: 0.85 }}
                 transition={{ duration: 0.8, delay: 1.2 }}
-                className="text-xs uppercase tracking-[0.25em] text-[#8B73A6] mt-6 font-semibold"
+                className="text-[11px] sm:text-xs md:text-sm uppercase tracking-[0.25em] text-[#5B7B63] mt-6 sm:mt-8 font-semibold"
               >
                 TOGETHER WITH THEIR FAMILIES
               </motion.p>
@@ -397,24 +461,24 @@ export default function App() {
             >
               <motion.span
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 0.9 }}
+                animate={{ opacity: 0.95 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-xs uppercase tracking-[0.35em] text-[#C8A97E] font-bold mb-2.5"
+                className="text-xs sm:text-sm font-bold text-[#4A6B52] uppercase tracking-[0.3em] mb-3"
               >
                 WEDDING OCCASION DETAILS
               </motion.span>
 
-              {/* Both Occasions Displayed Elegantly */}
-              <div className="w-full space-y-3.5 text-left max-h-[calc(100vh-110px)] overflow-y-auto no-scrollbar py-1">
+              {/* Responsive Occasion Layout: Single column stacked on mobile, 2-column grid on tablets/desktops */}
+              <div className="w-full space-y-3.5 md:space-y-0 md:grid md:grid-cols-2 md:gap-5 text-left max-h-[calc(100dvh-130px)] overflow-y-auto no-scrollbar py-1">
                 {/* Occasion 1: Dinner & Reception */}
                 <motion.div
                   initial={{ opacity: 0, x: -15 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
-                  className="bg-[#FAF7FC]/95 backdrop-blur-md border border-[#C8A97E]/40 p-3.5 md:p-4.5 rounded-3xl shadow-sm relative overflow-hidden"
+                  className="bg-[#EEF5EE]/95 backdrop-blur-md border border-[#A8C3A8] p-3.5 sm:p-5 rounded-3xl shadow-sm relative overflow-hidden flex flex-col justify-between"
                 >
                   {/* Photo Header */}
-                  <div className="relative rounded-xl overflow-hidden h-28 md:h-34 w-full mb-3 shadow-inner bg-stone-900 group">
+                  <div className="relative rounded-xl overflow-hidden h-28 sm:h-36 md:h-40 w-full mb-3 shadow-inner bg-stone-900 group">
                     <img
                       src={receptionImg}
                       alt="Dinner & Reception"
@@ -423,7 +487,7 @@ export default function App() {
                   </div>
 
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-[10px] uppercase tracking-[0.2em] bg-[#F0EBF7] text-[#4A3763] px-2.5 py-1 rounded-full font-bold">
+                    <span className="text-[10px] sm:text-xs uppercase tracking-[0.18em] bg-[#D4E4D4] text-[#233B2B] px-3 py-1 rounded-full font-bold border border-[#A8C3A8]">
                       DINNER & RECEPTION
                     </span>
 
@@ -431,23 +495,23 @@ export default function App() {
                       href="https://maps.app.goo.gl/wqMKv7hmZn3ws7ub9"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 bg-[#4A3763] hover:bg-[#38284C] text-[#FAF8FC] px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase shadow-md transition-all duration-200 active:scale-95 cursor-pointer border border-[#C8A97E]/40"
+                      className="inline-flex items-center gap-1.5 bg-[#233B2B] hover:bg-[#16271C] text-[#E6EFE6] px-3.5 sm:px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-bold tracking-wider uppercase shadow-md transition-all duration-200 active:scale-95 cursor-pointer border border-[#A8C3A8]/40"
                     >
-                      <MapPin size={13} className="text-[#C8A97E]" />
-                      <span>VIEW MAP →</span>
+                      <MapPin size={13} className="text-[#A8C3A8]" />
+                      <span>MAP →</span>
                     </a>
                   </div>
 
                   {/* Prominent Hero Date */}
                   <div className="flex items-baseline gap-2 mb-1">
-                    <span className="text-4xl md:text-5xl font-bold font-['Cormorant_Garamond',_serif] text-[#4A3763] leading-none">13</span>
+                    <span className="text-4xl sm:text-5xl font-bold font-['Cormorant_Garamond',_serif] text-[#233B2B] leading-none">13</span>
                     <div className="flex flex-col text-left">
-                      <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#C8A97E]">SEPTEMBER 2026</span>
-                      <span className="text-[10px] font-semibold text-[#8B73A6]">SUNDAY • 7:00 PM ONWARDS</span>
+                      <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.18em] text-[#4A6B52]">SEPTEMBER 2026</span>
+                      <span className="text-[10px] sm:text-xs font-semibold text-[#5B7B63]">SUNDAY • 7:00 PM ONWARDS</span>
                     </div>
                   </div>
 
-                  <p className="text-xs text-[#75628C] font-['Montserrat'] font-medium">
+                  <p className="text-xs sm:text-sm text-[#5B7B63] font-['Montserrat'] font-medium">
                     Chamanthi Venue • Hosur, Tamil Nadu
                   </p>
                 </motion.div>
@@ -457,10 +521,10 @@ export default function App() {
                   initial={{ opacity: 0, x: 15 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8, delay: 0.6 }}
-                  className="bg-[#FAF7FC]/95 backdrop-blur-md border border-[#C8A97E]/40 p-3.5 md:p-4.5 rounded-3xl shadow-sm relative overflow-hidden"
+                  className="bg-[#EEF5EE]/95 backdrop-blur-md border border-[#A8C3A8] p-3.5 sm:p-5 rounded-3xl shadow-sm relative overflow-hidden flex flex-col justify-between"
                 >
                   {/* Photo Header */}
-                  <div className="relative rounded-xl overflow-hidden h-28 md:h-34 w-full mb-3 shadow-inner bg-stone-900 group">
+                  <div className="relative rounded-xl overflow-hidden h-28 sm:h-36 md:h-40 w-full mb-3 shadow-inner bg-stone-900 group">
                     <img
                       src={marriageImg}
                       alt="Holy Marriage Ceremony"
@@ -469,7 +533,7 @@ export default function App() {
                   </div>
 
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-[10px] uppercase tracking-[0.2em] bg-[#F0EBF7] text-[#4A3763] px-2.5 py-1 rounded-full font-bold">
+                    <span className="text-[10px] sm:text-xs uppercase tracking-[0.18em] bg-[#D4E4D4] text-[#233B2B] px-3 py-1 rounded-full font-bold border border-[#A8C3A8]">
                       HOLY MARRIAGE
                     </span>
 
@@ -477,23 +541,23 @@ export default function App() {
                       href="https://maps.app.goo.gl/2QGp6t3MdBhHzTXL6"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 bg-[#4A3763] hover:bg-[#38284C] text-[#FAF8FC] px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase shadow-md transition-all duration-200 active:scale-95 cursor-pointer border border-[#C8A97E]/40"
+                      className="inline-flex items-center gap-1.5 bg-[#233B2B] hover:bg-[#16271C] text-[#E6EFE6] px-3.5 sm:px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-bold tracking-wider uppercase shadow-md transition-all duration-200 active:scale-95 cursor-pointer border border-[#A8C3A8]/40"
                     >
-                      <MapPin size={13} className="text-[#C8A97E]" />
-                      <span>VIEW MAP →</span>
+                      <MapPin size={13} className="text-[#A8C3A8]" />
+                      <span>MAP →</span>
                     </a>
                   </div>
 
                   {/* Prominent Hero Date */}
                   <div className="flex items-baseline gap-2 mb-1">
-                    <span className="text-4xl md:text-5xl font-bold font-['Cormorant_Garamond',_serif] text-[#4A3763] leading-none">14</span>
+                    <span className="text-4xl sm:text-5xl font-bold font-['Cormorant_Garamond',_serif] text-[#233B2B] leading-none">14</span>
                     <div className="flex flex-col text-left">
-                      <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#C8A97E]">SEPTEMBER 2026</span>
-                      <span className="text-[10px] font-semibold text-[#8B73A6]">MONDAY • 9:45 AM CEREMONY</span>
+                      <span className="text-xs sm:text-sm font-bold uppercase tracking-[0.18em] text-[#4A6B52]">SEPTEMBER 2026</span>
+                      <span className="text-[10px] sm:text-xs font-semibold text-[#5B7B63]">MONDAY • 9:45 AM CEREMONY</span>
                     </div>
                   </div>
 
-                  <p className="text-xs text-[#75628C] font-['Montserrat'] font-medium">
+                  <p className="text-xs sm:text-sm text-[#5B7B63] font-['Montserrat'] font-medium">
                     Sacred Heart Church • Hosur, Tamil Nadu
                   </p>
                 </motion.div>
@@ -513,53 +577,132 @@ export default function App() {
             >
               <motion.p
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 0.85 }}
+                animate={{ opacity: 0.9 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-xs uppercase tracking-[0.3em] text-[#8B73A6] mb-6 font-bold"
+                className="text-xs sm:text-sm font-bold text-[#4A6B52] uppercase tracking-[0.3em] mb-4 sm:mb-8"
               >
                 COUNTING DOWN TO OUR WEDDING DAY
               </motion.p>
 
-              {/* Minimal Lavender Serif Numerals */}
-              <div className="grid grid-cols-4 gap-3 md:gap-4 w-full max-w-xs mx-auto mb-8">
+              {/* Minimal Pure Sage Green Serif Numerals */}
+              <div className="grid grid-cols-4 gap-2 sm:gap-6 w-full max-w-xs sm:max-w-md md:max-w-lg mx-auto mb-3 sm:mb-4">
                 <div className="flex flex-col items-center">
-                  <span className="text-4xl md:text-5xl font-bold font-['Cormorant_Garamond',_serif] text-[#4A3763]">
+                  <span className="text-3xl sm:text-5xl md:text-6xl font-bold font-['Cormorant_Garamond',_serif] text-[#233B2B]">
                     {timeLeft.days}
                   </span>
-                  <span className="text-[9px] uppercase tracking-[0.25em] text-[#C8A97E] mt-2 font-bold">DAYS</span>
+                  <span className="text-[8px] sm:text-[10px] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#4A6B52] mt-1 font-bold">DAYS</span>
                 </div>
 
                 <div className="flex flex-col items-center">
-                  <span className="text-4xl md:text-5xl font-bold font-['Cormorant_Garamond',_serif] text-[#4A3763]">
+                  <span className="text-3xl sm:text-5xl md:text-6xl font-bold font-['Cormorant_Garamond',_serif] text-[#233B2B]">
                     {timeLeft.hours}
                   </span>
-                  <span className="text-[9px] uppercase tracking-[0.25em] text-[#C8A97E] mt-2 font-bold">HOURS</span>
+                  <span className="text-[8px] sm:text-[10px] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#4A6B52] mt-1 font-bold">HOURS</span>
                 </div>
 
                 <div className="flex flex-col items-center">
-                  <span className="text-4xl md:text-5xl font-bold font-['Cormorant_Garamond',_serif] text-[#4A3763]">
+                  <span className="text-3xl sm:text-5xl md:text-6xl font-bold font-['Cormorant_Garamond',_serif] text-[#233B2B]">
                     {timeLeft.minutes}
                   </span>
-                  <span className="text-[9px] uppercase tracking-[0.25em] text-[#C8A97E] mt-2 font-bold">MINS</span>
+                  <span className="text-[8px] sm:text-[10px] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#4A6B52] mt-1 font-bold">MINS</span>
                 </div>
 
                 <div className="flex flex-col items-center">
-                  <span className="text-4xl md:text-5xl font-bold font-['Cormorant_Garamond',_serif] text-[#4A3763]">
+                  <span className="text-3xl sm:text-5xl md:text-6xl font-bold font-['Cormorant_Garamond',_serif] text-[#233B2B]">
                     {timeLeft.seconds}
                   </span>
-                  <span className="text-[9px] uppercase tracking-[0.25em] text-[#C8A97E] mt-2 font-bold">SECS</span>
+                  <span className="text-[8px] sm:text-[10px] uppercase tracking-[0.2em] sm:tracking-[0.25em] text-[#4A6B52] mt-1 font-bold">SECS</span>
                 </div>
               </div>
 
+              {/* Ultra-Minimal September 2026 Calendar Grid */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="w-full max-w-[260px] sm:max-w-[290px] mx-auto my-3 sm:my-4 text-center"
+              >
+                <div className="text-[11px] font-bold tracking-[0.25em] uppercase text-[#4A6B52] mb-2">
+                  SEPTEMBER 2026
+                </div>
+
+                {/* Days of week header */}
+                <div className="grid grid-cols-7 text-center text-[9px] font-semibold text-[#5B7B63]/70 uppercase mb-1">
+                  <span>S</span>
+                  <span>M</span>
+                  <span>T</span>
+                  <span>W</span>
+                  <span>T</span>
+                  <span>F</span>
+                  <span>S</span>
+                </div>
+
+                {/* Days Grid for September 2026 */}
+                <div className="grid grid-cols-7 text-center text-xs gap-y-1 items-center justify-items-center font-['Montserrat']">
+                  {/* Empty offset slots for Sun & Mon before 1st Sept */}
+                  <div />
+                  <div />
+
+                  {/* Days 1 to 30 */}
+                  {Array.from({ length: 30 }, (_, i) => i + 1).map((day) => {
+                    const isReception = day === 13;
+                    const isMarriage = day === 14;
+
+                    if (isReception) {
+                      return (
+                        <div
+                          key={day}
+                          className="flex items-center justify-center w-6 h-6 rounded-full bg-[#233B2B] text-[#E6EFE6] font-bold text-[11px] shadow-sm cursor-pointer"
+                          title="13 Sept - Reception (7:00 PM)"
+                        >
+                          13
+                        </div>
+                      );
+                    }
+
+                    if (isMarriage) {
+                      return (
+                        <div
+                          key={day}
+                          className="flex items-center justify-center w-6 h-6 rounded-full bg-[#4A6B52] text-[#E6EFE6] font-bold text-[11px] shadow-sm cursor-pointer"
+                          title="14 Sept - Holy Marriage (9:45 AM)"
+                        >
+                          14
+                        </div>
+                      );
+                    }
+
+                    return (
+                      <div key={day} className="w-6 h-6 flex items-center justify-center text-[#233B2B]/60 text-[11px]">
+                        {day}
+                      </div>
+                    );
+                  })}
+                </div>
+
+                {/* Ultra-Minimal Legend */}
+                <div className="flex items-center justify-center gap-3 mt-2 text-[10px] font-['Montserrat'] font-medium text-[#5B7B63]">
+                  <span className="flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#233B2B]" />
+                    <span>13 Reception</span>
+                  </span>
+                  <span>•</span>
+                  <span className="flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#4A6B52]" />
+                    <span>14 Wedding</span>
+                  </span>
+                </div>
+              </motion.div>
+
               {/* RSVP Action Link */}
-              <div className="flex flex-col items-center gap-4 w-full max-w-xs">
+              <div className="flex flex-col items-center gap-3 sm:gap-4 w-full max-w-xs sm:max-w-sm">
                 <button
                   onClick={() => setIsRsvpModalOpen(true)}
-                  className="w-full py-3.5 px-4 border-2 border-[#4A3763] text-[#4A3763] hover:bg-[#4A3763] hover:text-[#FAF8FC] rounded-full text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-sm active:scale-95"
+                  className="w-full py-3.5 px-4 border-2 border-[#233B2B] text-[#233B2B] hover:bg-[#233B2B] hover:text-[#E6EFE6] rounded-full text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-sm active:scale-95"
                 >
                   {rsvpSubmitted ? (
                     <>
-                      <CheckCircle2 size={15} className="text-[#C8A97E]" />
+                      <CheckCircle2 size={15} className="text-[#4A6B52]" />
                       <span>RSVP CONFIRMED ✨</span>
                     </>
                   ) : (
@@ -571,10 +714,10 @@ export default function App() {
                   href={`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent("Vinoliya & Sam Daniel's Holy Marriage & Reception")}&dates=20260913T133000Z/20260914T041500Z&details=${encodeURIComponent("You are warmly invited to celebrate the Holy Marriage & Reception of Vinoliya & Sam Daniel!\n\n- Dinner & Reception: Sunday 13 Sept 7:00 PM at Chamanthi Venue, Hosur\n- Holy Marriage: Monday 14 Sept 9:45 AM at Sacred Heart Church, Hosur")}&location=${encodeURIComponent("Sacred Heart Church, Hosur, Tamil Nadu")}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[11px] tracking-[0.25em] uppercase text-[#8B73A6] font-bold hover:text-[#4A3763] transition-colors mt-2 cursor-pointer inline-flex items-center gap-1.5"
+                  className="text-[10px] sm:text-[11px] tracking-[0.2em] sm:tracking-[0.25em] uppercase text-[#5B7B63] font-bold hover:text-[#233B2B] transition-colors mt-1 cursor-pointer inline-flex items-center gap-1.5"
                 >
-                  <Calendar size={13} className="text-[#C8A97E]" />
-                  <span>SAVE TO GOOGLE CALENDAR</span>
+                  <Calendar size={13} className="text-[#4A6B52]" />
+                  <span>SAVE THE DATE</span>
                 </a>
               </div>
             </motion.div>
@@ -583,15 +726,15 @@ export default function App() {
         </AnimatePresence>
       </main>
 
-      {/* Bottom Fixed Navigation Bar: Highly Visible Mobile Next / Prev CTA */}
-      <footer className="w-full max-w-md px-6 pb-10 pt-3 mb-2 flex items-center justify-between z-40 relative flex-shrink-0">
+      {/* Bottom Fixed Navigation Bar: Mobile & Desktop Navigation CTA */}
+      <footer className="w-full max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-4xl px-2 sm:px-6 pb-4 sm:pb-8 pt-2 flex items-center justify-between z-40 relative flex-shrink-0">
         {/* Previous Scene Button */}
         {scene > 1 ? (
           <button
             onClick={prevScene}
-            className="flex items-center gap-1.5 bg-[#F4EFF9]/90 hover:bg-[#EBE2F5] backdrop-blur-md px-4 py-2 rounded-full border border-[#DDD0EB] shadow-sm text-xs font-bold text-[#4A3763] transition-all cursor-pointer active:scale-95"
+            className="flex items-center gap-1.5 bg-[#D4E4D4]/90 hover:bg-[#C5D8C5] backdrop-blur-md px-4 py-2 rounded-full border border-[#A8C3A8] shadow-sm text-xs font-bold text-[#233B2B] transition-all cursor-pointer active:scale-95"
           >
-            <ChevronLeft size={14} className="text-[#8B73A6]" />
+            <ChevronLeft size={14} className="text-[#5B7B63]" />
             <span>PREV</span>
           </button>
         ) : (
@@ -605,7 +748,7 @@ export default function App() {
               key={step}
               onClick={() => setScene(step)}
               className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                scene === step ? 'w-6 bg-[#4A3763]' : 'w-2 bg-[#DDD0EB] hover:bg-[#A28BBF]'
+                scene === step ? 'w-6 bg-[#233B2B]' : 'w-2 bg-[#A8C3A8] hover:bg-[#6C8E6C]'
               }`}
               title={`Go to Scene ${step}`}
             />
@@ -616,33 +759,35 @@ export default function App() {
         {scene < totalScenes ? (
           <button
             onClick={nextScene}
-            className="flex items-center gap-1.5 bg-[#4A3763] hover:bg-[#38284C] text-[#FAF8FC] px-5 py-2 rounded-full border border-[#C8A97E]/40 shadow-md text-xs font-bold tracking-wider uppercase transition-all cursor-pointer active:scale-95"
+            className="flex items-center gap-1.5 bg-[#233B2B] hover:bg-[#16271C] text-[#E6EFE6] px-5 py-2 rounded-full border border-[#A8C3A8]/40 shadow-md text-xs font-bold tracking-wider uppercase transition-all cursor-pointer active:scale-95"
           >
             <span>NEXT</span>
-            <ChevronRight size={14} className="text-[#C8A97E]" />
+            <ChevronRight size={14} className="text-[#A8C3A8]" />
           </button>
         ) : (
-          <button
-            onClick={() => setIsRsvpModalOpen(true)}
-            className="flex items-center gap-1.5 bg-[#4A3763] hover:bg-[#38284C] text-[#FAF8FC] px-4 py-2 rounded-full border border-[#C8A97E]/40 shadow-md text-xs font-bold tracking-wider uppercase transition-all cursor-pointer active:scale-95"
+          <a
+            href={`https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent("Vinoliya & Sam Daniel's Holy Marriage & Reception")}&dates=20260913T133000Z/20260914T041500Z&details=${encodeURIComponent("You are warmly invited to celebrate the Holy Marriage & Reception of Vinoliya & Sam Daniel!\n\n- Dinner & Reception: Sunday 13 Sept 7:00 PM at Chamanthi Venue, Hosur\n- Holy Marriage: Monday 14 Sept 9:45 AM at Sacred Heart Church, Hosur")}&location=${encodeURIComponent("Sacred Heart Church, Hosur, Tamil Nadu")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 bg-[#233B2B] hover:bg-[#16271C] text-[#E6EFE6] px-4 py-2 rounded-full border border-[#A8C3A8]/40 shadow-md text-xs font-bold tracking-wider uppercase transition-all cursor-pointer active:scale-95"
           >
-            <span>RSVP</span>
-            <Sparkles size={13} className="text-[#C8A97E]" />
-          </button>
+            <span>SAVE THE DATE</span>
+            <Calendar size={13} className="text-[#A8C3A8]" />
+          </a>
         )}
       </footer>
 
       {/* Interactive RSVP Form Modal Dialog */}
       <AnimatePresence>
         {isRsvpModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4">
             {/* Backdrop Blur */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsRsvpModalOpen(false)}
-              className="absolute inset-0 bg-[#38284C]/40 backdrop-blur-md"
+              className="absolute inset-0 bg-[#233B2B]/40 backdrop-blur-md"
             />
 
             {/* Modal Dialog Card */}
@@ -650,40 +795,40 @@ export default function App() {
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="w-full max-w-sm bg-[#FAF8FC] border border-[#C8A97E]/50 rounded-3xl p-6 shadow-2xl relative z-10 text-left paper-grain overflow-hidden"
+              className="w-full max-w-xs sm:max-w-md max-h-[88dvh] overflow-y-auto bg-[#E6EFE6] border border-[#A8C3A8] rounded-3xl p-5 sm:p-6 shadow-2xl relative z-10 text-left paper-grain no-scrollbar"
             >
               {/* Close Button */}
               <button
                 onClick={() => setIsRsvpModalOpen(false)}
-                className="absolute top-4 right-4 text-[#8B73A6] hover:text-[#4A3763] p-1 rounded-full hover:bg-[#F0EBF7] transition-colors cursor-pointer"
+                className="absolute top-4 right-4 text-[#5B7B63] hover:text-[#233B2B] p-1 rounded-full hover:bg-[#D4E4D4] transition-colors cursor-pointer"
               >
                 <X size={18} />
               </button>
 
-              <div className="text-center mb-5">
-                <span className="text-[10px] uppercase tracking-[0.3em] text-[#C8A97E] font-bold block mb-1">
+              <div className="text-center mb-4 sm:mb-5">
+                <span className="text-[10px] uppercase tracking-[0.3em] text-[#4A6B52] font-bold block mb-1">
                   WEDDING RSVP
                 </span>
-                <h3 className="text-2xl font-normal text-[#4A3763] font-['Alex_Brush',_cursive]">
+                <h3 className="text-2xl sm:text-3xl font-normal text-[#233B2B] font-['Alex_Brush',_cursive]">
                   Join Our Celebration
                 </h3>
               </div>
 
-              <form onSubmit={handleRsvpSubmit} className="space-y-3.5 text-xs">
+              <form onSubmit={handleRsvpSubmit} className="space-y-3 sm:space-y-4 text-xs">
                 {/* Guest Name */}
                 <div>
-                  <label className="block text-[10px] uppercase tracking-wider font-bold text-[#8B73A6] mb-1">
+                  <label className="block text-[10px] uppercase tracking-wider font-bold text-[#5B7B63] mb-1">
                     YOUR FULL NAME *
                   </label>
                   <div className="relative">
-                    <User size={14} className="absolute left-3 top-3 text-[#A28BBF]" />
+                    <User size={14} className="absolute left-3 top-3 text-[#5B7B63]" />
                     <input
                       type="text"
                       required
                       placeholder="Enter your name"
                       value={rsvpForm.name}
                       onChange={(e) => setRsvpForm({ ...rsvpForm, name: e.target.value })}
-                      className="w-full pl-9 pr-3 py-2 bg-[#F4EFF9] border border-[#DDD0EB] rounded-xl text-[#4A3763] focus:outline-none focus:border-[#4A3763] font-['Montserrat'] text-xs font-medium"
+                      className="w-full pl-9 pr-3 py-2 bg-[#D4E4D4] border border-[#A8C3A8] rounded-xl text-[#233B2B] focus:outline-none focus:border-[#233B2B] font-['Montserrat'] text-xs font-medium"
                     />
                   </div>
                 </div>
@@ -691,31 +836,31 @@ export default function App() {
                 {/* Phone / Email */}
                 <div className="grid grid-cols-2 gap-2">
                   <div>
-                    <label className="block text-[10px] uppercase tracking-wider font-bold text-[#8B73A6] mb-1">
+                    <label className="block text-[10px] uppercase tracking-wider font-bold text-[#5B7B63] mb-1">
                       PHONE NUMBER
                     </label>
                     <div className="relative">
-                      <Phone size={13} className="absolute left-3 top-3 text-[#A28BBF]" />
+                      <Phone size={13} className="absolute left-3 top-3 text-[#5B7B63]" />
                       <input
                         type="tel"
                         placeholder="Mobile"
                         value={rsvpForm.phone}
                         onChange={(e) => setRsvpForm({ ...rsvpForm, phone: e.target.value })}
-                        className="w-full pl-8 pr-2 py-2 bg-[#F4EFF9] border border-[#DDD0EB] rounded-xl text-[#4A3763] focus:outline-none focus:border-[#4A3763] font-['Montserrat'] text-xs font-medium"
+                        className="w-full pl-8 pr-2 py-2 bg-[#D4E4D4] border border-[#A8C3A8] rounded-xl text-[#233B2B] focus:outline-none focus:border-[#233B2B] font-['Montserrat'] text-xs font-medium"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-[10px] uppercase tracking-wider font-bold text-[#8B73A6] mb-1">
+                    <label className="block text-[10px] uppercase tracking-wider font-bold text-[#5B7B63] mb-1">
                       NUMBER OF GUESTS
                     </label>
                     <div className="relative">
-                      <Users size={13} className="absolute left-3 top-3 text-[#A28BBF]" />
+                      <Users size={13} className="absolute left-3 top-3 text-[#5B7B63]" />
                       <select
                         value={rsvpForm.guestsCount}
                         onChange={(e) => setRsvpForm({ ...rsvpForm, guestsCount: Number(e.target.value) })}
-                        className="w-full pl-8 pr-2 py-2 bg-[#F4EFF9] border border-[#DDD0EB] rounded-xl text-[#4A3763] focus:outline-none focus:border-[#4A3763] font-['Montserrat'] text-xs font-medium appearance-none"
+                        className="w-full pl-8 pr-2 py-2 bg-[#D4E4D4] border border-[#A8C3A8] rounded-xl text-[#233B2B] focus:outline-none focus:border-[#233B2B] font-['Montserrat'] text-xs font-medium appearance-none"
                       >
                         <option value={1}>1 Guest</option>
                         <option value={2}>2 Guests</option>
@@ -729,26 +874,26 @@ export default function App() {
 
                 {/* Attending Checkboxes */}
                 <div>
-                  <label className="block text-[10px] uppercase tracking-wider font-bold text-[#8B73A6] mb-1.5">
+                  <label className="block text-[10px] uppercase tracking-wider font-bold text-[#5B7B63] mb-1.5">
                     EVENTS YOU WILL ATTEND
                   </label>
                   <div className="space-y-1.5 font-['Montserrat']">
-                    <label className="flex items-center gap-2 cursor-pointer text-xs font-medium text-[#4A3763]">
+                    <label className="flex items-center gap-2 cursor-pointer text-xs font-medium text-[#233B2B]">
                       <input
                         type="checkbox"
                         checked={rsvpForm.reception}
                         onChange={(e) => setRsvpForm({ ...rsvpForm, reception: e.target.checked })}
-                        className="accent-[#4A3763] rounded w-3.5 h-3.5"
+                        className="accent-[#233B2B] rounded w-3.5 h-3.5"
                       />
                       <span>Dinner & Reception (13 Sept 7:00 PM)</span>
                     </label>
 
-                    <label className="flex items-center gap-2 cursor-pointer text-xs font-medium text-[#4A3763]">
+                    <label className="flex items-center gap-2 cursor-pointer text-xs font-medium text-[#233B2B]">
                       <input
                         type="checkbox"
                         checked={rsvpForm.marriage}
                         onChange={(e) => setRsvpForm({ ...rsvpForm, marriage: e.target.checked })}
-                        className="accent-[#4A3763] rounded w-3.5 h-3.5"
+                        className="accent-[#233B2B] rounded w-3.5 h-3.5"
                       />
                       <span>Holy Marriage (14 Sept 9:45 AM)</span>
                     </label>
@@ -757,7 +902,7 @@ export default function App() {
 
                 {/* Message Note */}
                 <div>
-                  <label className="block text-[10px] uppercase tracking-wider font-bold text-[#8B73A6] mb-1">
+                  <label className="block text-[10px] uppercase tracking-wider font-bold text-[#5B7B63] mb-1">
                     WISHES / MESSAGE FOR COUPLE
                   </label>
                   <textarea
@@ -765,7 +910,7 @@ export default function App() {
                     placeholder="Write a message for Sam & Vinoliya..."
                     value={rsvpForm.message}
                     onChange={(e) => setRsvpForm({ ...rsvpForm, message: e.target.value })}
-                    className="w-full p-2.5 bg-[#F4EFF9] border border-[#DDD0EB] rounded-xl text-[#4A3763] focus:outline-none focus:border-[#4A3763] font-['Montserrat'] text-xs font-medium resize-none"
+                    className="w-full p-2.5 bg-[#D4E4D4] border border-[#A8C3A8] rounded-xl text-[#233B2B] focus:outline-none focus:border-[#233B2B] font-['Montserrat'] text-xs font-medium resize-none"
                   />
                 </div>
 
@@ -773,13 +918,13 @@ export default function App() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3 bg-[#4A3763] hover:bg-[#38284C] text-[#FAF8FC] rounded-xl text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-md active:scale-95 mt-4"
+                  className="w-full py-3 bg-[#233B2B] hover:bg-[#16271C] text-[#E6EFE6] rounded-xl text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-md active:scale-95 mt-4"
                 >
                   {isSubmitting ? (
                     <span>SAVING RSVP...</span>
                   ) : (
                     <>
-                      <Send size={13} className="text-[#C8A97E]" />
+                      <Send size={13} className="text-[#A8C3A8]" />
                       <span>SUBMIT CONFIRMATION →</span>
                     </>
                   )}
