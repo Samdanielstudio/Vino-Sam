@@ -300,7 +300,7 @@ export default function App() {
       </div>
 
       {/* Top Fixed Bar: Minimal Progress & Audio Control */}
-      <header className="w-full max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-4xl px-3 sm:px-6 pt-[calc(0.75rem+env(safe-area-inset-top))] sm:pt-4 flex items-center justify-between z-40 relative flex-shrink-0">
+      <header className="w-full max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-4xl px-3 sm:px-6 pt-[calc(0.5rem+env(safe-area-inset-top))] sm:pt-3 pb-1 flex items-center justify-between z-40 relative flex-shrink-0 mb-1 sm:mb-2">
         {/* Minimal Audio Toggle Pill */}
         <button
           onClick={toggleMusic}
@@ -323,7 +323,7 @@ export default function App() {
       </header>
 
       {/* Main Viewport */}
-      <main className="w-full max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-4xl flex-1 flex flex-col items-center justify-center px-3 sm:px-6 py-1 z-10 relative overflow-y-auto no-scrollbar min-h-0 my-auto">
+      <main className="w-full max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-4xl flex-1 flex flex-col items-center justify-center px-3 sm:px-6 py-1 z-10 relative overflow-y-auto no-scrollbar min-h-0">
         <AnimatePresence mode="wait">
           
           {/* ================= 1. WELCOME ARRIVAL ================= */}
@@ -334,14 +334,14 @@ export default function App() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15, filter: "blur(6px)" }}
               transition={{ duration: 1.2, ease: [0.25, 1, 0.5, 1] }}
-              className="w-full flex flex-col items-center justify-center text-center my-auto cursor-pointer py-1"
+              className="w-full flex flex-col items-center justify-center text-center my-auto cursor-pointer py-1 max-h-full"
               onClick={nextScene}
             >
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.5, delay: 0.2 }}
-                className="w-8 h-8 sm:w-9 sm:h-9 mb-1.5 border border-[#A8C3A8] bg-[#D4E4D4] rounded-full flex items-center justify-center text-[#233B2B] text-base sm:text-lg shadow-sm"
+                className="w-7 h-7 sm:w-8 sm:h-8 mb-1 border border-[#A8C3A8] bg-[#D4E4D4] rounded-full flex items-center justify-center text-[#233B2B] text-sm sm:text-base shadow-sm flex-shrink-0"
               >
                 ✦
               </motion.div>
@@ -350,22 +350,22 @@ export default function App() {
                 initial={{ opacity: 0, letterSpacing: '0.2em' }}
                 animate={{ opacity: 1, letterSpacing: '0.3em' }}
                 transition={{ duration: 1.5, delay: 0.3 }}
-                className="text-xs sm:text-sm md:text-base font-extrabold text-[#3B5B43] uppercase tracking-[0.3em] mb-1.5 sm:mb-2"
+                className="text-[11px] sm:text-xs md:text-sm font-extrabold text-[#3B5B43] uppercase tracking-[0.25em] sm:tracking-[0.3em] my-1 flex-shrink-0"
               >
                 OUR FOREVER STARTS HERE
               </motion.h2>
 
-              {/* Transparent Illustration Image - Prominent Mobile & Desktop Sizing */}
+              {/* Transparent Illustration Image - Flexible Responsive Sizing */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.85, y: 10 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 1.2, delay: 0.4 }}
-                className="w-56 h-56 sm:w-72 sm:h-72 md:w-88 md:h-88 max-h-[38vh] sm:max-h-[44vh] my-2 sm:my-4 relative flex items-center justify-center pointer-events-none"
+                className="w-36 h-36 sm:w-52 sm:h-52 md:w-60 md:h-60 max-h-[24vh] sm:max-h-[28vh] my-1 sm:my-2 relative flex items-center justify-center pointer-events-none flex-shrink min-h-0"
               >
                 <img
                   src={welcomeCoupleImg}
                   alt="Wedding Illustration"
-                  className="w-full h-full object-contain filter drop-shadow-xl scale-105 sm:scale-100"
+                  className="w-full h-full object-contain filter drop-shadow-xl scale-100"
                 />
               </motion.div>
 
@@ -373,7 +373,7 @@ export default function App() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1.5, delay: 0.7 }}
-                className="text-lg sm:text-2xl md:text-3xl font-semibold text-[#1E3324] font-['Cormorant_Garamond',_serif] italic leading-snug sm:leading-relaxed max-w-[360px] sm:max-w-[480px] md:max-w-[560px] px-2 my-1"
+                className="text-base sm:text-xl md:text-2xl font-semibold text-[#1E3324] font-['Cormorant_Garamond',_serif] italic leading-snug sm:leading-relaxed max-w-[320px] sm:max-w-[440px] md:max-w-[520px] px-2 my-1 flex-shrink-0"
               >
                 “With the blessings of God<br />
                 and the love of our families,<br />
@@ -385,14 +385,14 @@ export default function App() {
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 1.4, delay: 0.9 }}
-                className="w-14 h-[1.5px] bg-[#A8C3A8] my-2 sm:my-3"
+                className="w-12 h-[1.5px] bg-[#A8C3A8] my-1 sm:my-1.5 flex-shrink-0"
               />
 
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.95 }}
                 transition={{ duration: 1.5, delay: 1.1 }}
-                className="text-[11px] sm:text-xs font-['Montserrat'] tracking-[0.3em] uppercase text-[#3B5B43] font-extrabold"
+                className="text-[10px] sm:text-[11px] font-['Montserrat'] tracking-[0.25em] uppercase text-[#3B5B43] font-extrabold flex-shrink-0"
               >
                 TAP ANYWHERE TO BEGIN
               </motion.p>
@@ -737,7 +737,7 @@ export default function App() {
       </main>
 
       {/* Bottom Fixed Navigation Bar: Mobile & Desktop Navigation CTA */}
-      <footer className="w-full max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-4xl px-4 sm:px-6 pb-[calc(1.5rem+env(safe-area-inset-bottom))] sm:pb-8 pt-1 flex items-center justify-between z-40 relative flex-shrink-0">
+      <footer className="w-full max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-4xl px-4 sm:px-6 pb-[calc(1rem+env(safe-area-inset-bottom))] sm:pb-5 pt-1 flex items-center justify-between z-40 relative flex-shrink-0 mt-1 sm:mt-3">
         {/* Previous Scene Button */}
         {scene > 1 ? (
           <button
