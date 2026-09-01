@@ -4,7 +4,7 @@ import { ChevronRight, ChevronLeft, MapPin, Calendar, CheckCircle2, Clock, X, Se
 import bgMusic from '../assets/Music/the_mountain-wedding-522480.mp3';
 import marriageImg from '../assets/New Custom Images/Gemini_Generated_Image_hbtocchbtocchbto.png';
 import receptionImg from '../assets/New Custom Images/Gemini_Generated_Image_f1c2qf1c2qf1c2qf.png';
-import welcomeCoupleImg from '../assets/Image/Gemini_Generated_Image_cm759wcm759wcm75-removebg-preview.png';
+import welcomeCoupleImg from '../assets/Image/new_first_page_couple.png';
 import botanicalFrameImg from '../assets/Image/botanical_frame.png';
 
 // Watercolor Monochromatic Sage Green Petals Data (24 Multi-Layered Floating Petals)
