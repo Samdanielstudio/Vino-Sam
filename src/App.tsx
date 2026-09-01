@@ -355,12 +355,12 @@ export default function App() {
                 OUR FOREVER STARTS HERE
               </motion.h2>
 
-              {/* Transparent Illustration Image - Flexible Responsive Sizing */}
+              {/* Transparent Illustration Image - Flexible Responsive Sizing & Optical Centering */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.85, y: 10 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 1.2, delay: 0.4 }}
-                className="w-36 h-36 sm:w-52 sm:h-52 md:w-60 md:h-60 max-h-[24vh] sm:max-h-[28vh] my-1 sm:my-2 relative flex items-center justify-center pointer-events-none flex-shrink min-h-0"
+                className="w-36 h-36 sm:w-52 sm:h-52 md:w-60 md:h-60 max-h-[24vh] sm:max-h-[28vh] my-1 sm:my-2 relative flex items-center justify-center pointer-events-none flex-shrink min-h-0 -translate-x-[6%] sm:-translate-x-[7%]"
               >
                 <img
                   src={welcomeCoupleImg}
